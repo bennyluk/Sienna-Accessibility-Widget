@@ -3,35 +3,379 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
+  <title>Sienna Assessibilty Widget - Free Assessibilty Website Widget for All People</title>
   <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+  <meta name="author" content="Benny Luk">
 
-  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:title" content="Sienna Assessibilty Widget - Free Assessibilty Website Widget for All People">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
   <meta property="og:description" content="A simple HTML5 Template for new projects.">
   <meta property="og:image" content="image.png">
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;text=format_size,add,remove,restart_alt,close,title,link,local_parking,nightlight,brightness_5,tonality,filter_vintage,gradient,filter_b_and_w,local_library,zoom_in,mouse" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <style>
+    body {
+      font-family: "Nunito", sans-serif;
+      background: #fefefe;
+      color: #333;
+    }
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    section {
+      padding: 60px 0;
+    }
+
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+    }
+
+    h2 {
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    h6 {
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #4154f1;
+      text-transform: uppercase;
+    }
+
+    .navbar-brand {
+      color: #0245bc;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    .navbar ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      align-items: center;
+    }
+
+    .navbar li {
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .btn {
+      padding: 8px 24px;
+      font-weight: 600;
+    }
+
+    .info-box {
+      box-shadow: 0px 0 30px rgb(1 41 112 / 8%);
+      padding: 30px;
+      height: 100%;
+    }
+
+    .info-box .material-icons {
+      color: #0245bc;
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .info-box h3 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+  </style>
 
 </head>
 
 <body>
   <!-- your content here... -->
-    <header>
-        Header
+  <header>
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between pt-4">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span>Sienna</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <nav class="navbar">
+          <ul class="d-flex">
+            <li><a class="nav-link" href="#about"><svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
+              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg></a></li>
+            <li><a class="ms-4 btn btn-primary" href="#about">Get Started</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
     </header>
+
+    <main>
+      <section>
+
+        <div class="container">
+          <div class="row gx-0">
+  
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+              <div class="content">
+                <h1>
+                  Enterprise
+                  e-commerce
+                  shipped faster
+                </h1>
+                <h4 class="mt-4">
+                  An intuitive Git-based workflow and powerful serverless platform to build, deploy, and collaborate on web apps
+                </h4>
+                <div class="d-flex mt-5 ">
+                  <a href="#" class="btn btn-primary mr-4 d-flex me-4">
+                    <span>Get Started For Free</span>
+                  </a>
+                  <a href="#" class="btn btn-outline-primary">
+                    <span>Try The Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 d-flex align-items-center">
+              <img src="https://bootstrapmade.com/demo/templates/Arsha/assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
+  
+          </div>
+        </div>
+  
+      </section>
+
+
+      <section>
+        <div class="container">
+
+          <div class="text-center">
+            <h6>
+              Features
+            </h6>
+            <h2>
+              Widget comes all the features
+            </h2>
+          </div>
+
+          
+
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box">
+                <span class="material-icons">zoom_in</span>
+                <h3>Font Size</h3>
+                <p>
+                  Povident nihil minus qui consequatur non omnis maiores. Eos accusan
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box">
+                <span class="material-icons">format_size</span>
+                <h3>Hightlight Text</h3>
+                <p>
+                  Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box">
+                <span class="material-icons">filter_b_and_w</span>
+                <h3>Colors Adjustment</h3>
+                <p>
+                  Vel qui id voluptas adipisci eos earum corrupti.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box">
+                <span class="material-icons">local_library</span>
+                <h3>Reading Guide</h3>
+                <p>
+                  Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.
+                </p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+
+      <section class="text-center" style="background: #061475; color: white;padding: 120px 0;">
+        <h2>
+          "Accessibility is all about removing barriers and providing the benefits of technology for everyone.”
+        </h2>
+        <h5>
+          ... this is why this widget is free to use
+        </h5>
+      </section>
+
+      <section >
+        <div class="container">
+
+          <div class="text-center mb-5">
+            <h6>
+              Start Now
+            </h6>
+            <h2>
+              Installation in 5 Steps
+            </h2>
+          </div>
+
+          <style>
+            .step {
+              
+              margin-bottom: 80px;
+            }
+
+            .step-number {
+              width: 60px;
+              background: #061475;
+              border-radius: 50%;
+              display: inline-flex;
+              height: 60px;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 22px;
+              font-weight: 700;
+              margin-right: 30px;
+            }
+
+            .step h3 {
+              font-weight: 700;
+              margin-top: 12px;
+              margin-bottom: 24px;
+            }
+
+            .cdn-link {
+              display: flex;
+              background: #e8e8e8;
+              padding-left: 16px;
+              border-radius: 6px;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            .copy-cdn-btn {
+              height: 40px;
+              background: #061475;
+              display: flex;
+              align-items: center;
+              margin-left: 16px;
+              padding: 0 16px;
+              color: white;
+              border-top-right-radius: 4px;
+              border-bottom-right-radius: 4px;
+              border: 0;
+            }
+          </style>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="step d-flex">
+                <div class="step-number">
+                  1
+                </div>
+                <div>
+                  <h3>
+                    Get the Assessibilty Widget
+                  </h3>
+                  <p>
+                    Copy the link below to get the assessibilty widget.
+                    
+                    <div class="cdn-link">
+                      <div>
+                        https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
+                      </div>
+                      <button class="copy-cdn-btn">
+                        Copy Link
+                      </button>
+                    </div>
+
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="step d-flex">
+                <div class="step-number">
+                  2
+                </div>
+                <div>
+                  <h3>Paste to the at the body </h3>
+                  <p>
+                    <a>
+                      https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
+                    </a>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="step d-flex">
+                <div class="step-number">
+                  3
+                </div>
+                <div>
+                  <h3>Buy Me a Coffee (donate)</h3>
+                  <p>
+                    <a>
+                      https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
+                    </a>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+
+
+    </main>
+
+
+    One Pager
+    Home
+    Features
+    Pricing
+    Widgets
+    Contact Us
     
     <main>
         Nice
     </main>
 
+    <footer>
 
-  <script src="js/scripts.js"></script>
+    </footer>
+
+    <script>
+      document.querySelector('.copy-cdn-btn').addEventListener('click', () => {
+        document.querySelector('.copy-cdn-btn').innerHTML = 'Copied !'
+      })
+    </script>
+
+    <script src="../widget.js" defer></script>
+
+   
 </body>
 </html>

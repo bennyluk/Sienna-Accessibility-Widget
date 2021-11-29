@@ -2,20 +2,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sienna Accessibility Widget - Free Accessibility Website Widget for websites.</title>
 
-  <title>Sienna Assessibilty Widget - Free Assessibilty Website Widget for All People</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="description" content="Free Accessibility Widget for websites, Wordpress, Wix, Squarespace, Weebly, Shopify.">
   <meta name="author" content="Benny Luk">
-
-  <meta property="og:title" content="Sienna Assessibilty Widget - Free Assessibilty Website Widget for All People">
+  <meta property="og:title" content="Sienna | Free Accessibility Widget for Wordpress, Squarespace, and more.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
+  <meta property="og:url" content="https://bennyluk.github.io/Sienna-Accessibility-Widget/">
+  <meta property="og:description" content="Free Accessibility Widget for websites, Wordpress, Wix, Squarespace, Weebly, Shopify.">
+  <meta property="og:image" content="">
 
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;text=format_size,add,remove,restart_alt,close,title,link,local_parking,nightlight,brightness_5,tonality,filter_vintage,gradient,filter_b_and_w,local_library,zoom_in,mouse" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0R65CXK25" defer></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B0R65CXK25');
+  </script>
   
   <style>
     body {
@@ -25,7 +34,7 @@
     }
 
     section {
-      padding: 60px 0;
+      padding: 80px 0;
     }
 
     h1 {
@@ -86,12 +95,36 @@
       font-size: 22px;
       font-weight: 600;
     }
+
+    .accordion-item {
+      border-left: 0;
+      border-right: 0;
+      border-top: 1px solid rgba(0,0,0,.3) !important;
+      border-radius: 0;
+      border-bottom: 0;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: 1px solid rgba(0,0,0,.3) !important;
+    }
+    
+    .accordion-button {
+      font-weight: 700;
+      font-size: 18px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: inherit;
+      background-color: transparent;
+      box-shadow: none;
+    }
   </style>
 
 </head>
 
 <body>
-  <!-- your content here... -->
   <header>
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between pt-4">
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -103,10 +136,12 @@
 
         <nav class="navbar">
           <ul class="d-flex">
-            <li><a class="nav-link" href="#about"><svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
-              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-          </svg></a></li>
-            <li><a class="ms-4 btn btn-primary" href="#about">Get Started</a></li>
+            <li>
+              <a class="nav-link" href="https://github.com/bennyluk/Sienna-Accessibility-Widget" target="_blank"><svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
+                  <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+              </svg></a>
+            </li>
+            <li><a class="ms-4 btn btn-primary" href="#steps">Get Started</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -122,26 +157,24 @@
             <div class="col-lg-6 d-flex flex-column justify-content-center">
               <div class="content">
                 <h1>
-                  Enterprise
-                  e-commerce
-                  shipped faster
+                  Accessibility Widget for Everyone
                 </h1>
                 <h4 class="mt-4">
-                  An intuitive Git-based workflow and powerful serverless platform to build, deploy, and collaborate on web apps
+                  A <span class="">FREE</span> Accessibility widget that can installed in less than 2 steps on any website.
                 </h4>
                 <div class="d-flex mt-5 ">
-                  <a href="#" class="btn btn-primary mr-4 d-flex me-4">
+                  <a href="#steps" class="btn btn-primary mr-4 d-flex me-4">
                     <span>Get Started For Free</span>
                   </a>
-                  <a href="#" class="btn btn-outline-primary">
+                  <button class="btn btn-outline-primary demo-btn">
                     <span>Try The Demo</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
   
             <div class="col-lg-6 d-flex align-items-center">
-              <img src="https://bootstrapmade.com/demo/templates/Arsha/assets/img/hero-img.png" class="img-fluid animated" alt="">
+              <img src="./banner.png" class="mt-5 mt-lg-0 img-fluid animated" alt="">
             </div>
   
           </div>
@@ -154,11 +187,8 @@
         <div class="container">
 
           <div class="text-center">
-            <h6>
-              Features
-            </h6>
             <h2>
-              Widget comes all the features
+              Accessibility Features
             </h2>
           </div>
 
@@ -170,37 +200,39 @@
                 <span class="material-icons">zoom_in</span>
                 <h3>Font Size</h3>
                 <p>
-                  Povident nihil minus qui consequatur non omnis maiores. Eos accusan
+                  Assist clients by increasing the font size for your whole website without breaking the layout.
                 </p>
               </div>
             </div>
 
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box mt-4 mt-lg-0">
+                <span class="material-icons">filter_b_and_w</span>
+                <h3>Colors Adjustment</h3>
+                <p>
+                  Adjust the saturation and colors to ensure visibility comfort for all readers.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box mt-4 mt-lg-0">
+                <span class="material-icons">local_library</span>
+                <h3>Reading Guide</h3>
+                <p>
+                  Assists with reading and focusing by creating a virtual line for readers to follow.
+                </p>
+              </div>
+            </div>
+
+            
             <div class="col-lg-3 col-md-6">
               <div class="info-box">
                 <span class="material-icons">format_size</span>
                 <h3>Hightlight Text</h3>
                 <p>
-                  Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="info-box">
-                <span class="material-icons">filter_b_and_w</span>
-                <h3>Colors Adjustment</h3>
-                <p>
-                  Vel qui id voluptas adipisci eos earum corrupti.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="info-box">
-                <span class="material-icons">local_library</span>
-                <h3>Reading Guide</h3>
-                <p>
-                  Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.
+                  Elimate all animation to ensure a seizure safe website.
                 </p>
               </div>
             </div>
@@ -210,15 +242,17 @@
       </section>
 
       <section class="text-center" style="background: #061475; color: white;padding: 120px 0;">
-        <h2>
-          "Accessibility is all about removing barriers and providing the benefits of technology for everyone.”
-        </h2>
-        <h5>
-          ... this is why this widget is free to use
-        </h5>
+        <div class="container-fluid">
+          <h2>
+            "Accessibility is all about removing barriers and providing the benefits of technology for everyone.”
+          </h2>
+          <h5>
+            ... so this is why it should be FREE
+          </h5>
+        </div>
       </section>
 
-      <section >
+      <section id="steps">
         <div class="container">
 
           <div class="text-center mb-5">
@@ -226,7 +260,7 @@
               Start Now
             </h6>
             <h2>
-              Installation in 5 Steps
+              Installation in 2 Steps
             </h2>
           </div>
 
@@ -258,11 +292,20 @@
 
             .cdn-link {
               display: flex;
-              background: #e8e8e8;
-              padding-left: 16px;
-              border-radius: 6px;
               align-items: center;
               justify-content: space-between;
+            }
+
+            .cdn-link-input {
+              background: #e8e8e8;
+              padding: 0 12px;
+              border-radius: 6px;
+              width: 100%;
+              border: 0;
+              height: 40px;
+              flex: 1;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
             }
 
             .copy-cdn-btn {
@@ -270,7 +313,6 @@
               background: #061475;
               display: flex;
               align-items: center;
-              margin-left: 16px;
               padding: 0 16px;
               color: white;
               border-top-right-radius: 4px;
@@ -281,26 +323,42 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="step d-flex">
+              <div class="step d-flex flex-column flex-md-row">
                 <div class="step-number">
                   1
                 </div>
                 <div>
                   <h3>
-                    Get the Assessibilty Widget
+                    Get the Accessibility Widget
                   </h3>
                   <p>
-                    Copy the link below to get the assessibilty widget.
-                    
+                    Copy-paste the <code>&lt;script&gt;</code> tag right before the closing <code>&lt;/body&gt;</code> tag of you website.
+
                     <div class="cdn-link">
-                      <div>
-                        https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
-                      </div>
+                      <input class="cdn-link-input" type="text" value="" readonly="readonly">
+
                       <button class="copy-cdn-btn">
-                        Copy Link
+                        Copy Script Tag
                       </button>
                     </div>
-
+                    
+                    <br/>
+                    
+                    How to embed code in your website.
+                    <ul>
+                      <li>
+                        <a href="https://www.wpbeginner.com/plugins/how-to-easily-add-custom-code-in-wordpress-without-breaking-your-site/" target="_blank">Wordpress</a>
+                      </li>
+                      <li>
+                        <a href="https://support.squarespace.com/hc/en-us/articles/205815928-Adding-custom-code-to-your-site" target="_blank">Squarespace</a>
+                      </li>
+                      <li>
+                        <a href="https://support.wix.com/en/article/embedding-custom-code-to-your-site" target="_blank">Wix</a>
+                      </li>
+                      <li>
+                        <a href="https://www.webnots.com/how-to-add-codes-in-header-and-footer-code-sections-of-weebly/#:~:text=throughout%20the%20site.-,Site%20level%20codes%20can%20be%20added%20under%20%E2%80%9CSettings%20%3E%20SEO%20%3E,will%20impact%20all%20blog%20posts." target="_blank">Weebly</a>
+                      </li>
+                    </ul>
 
                   </p>
                 </div>
@@ -310,36 +368,19 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="step d-flex">
+              <div class="step d-flex flex-column flex-md-row">
                 <div class="step-number">
                   2
                 </div>
                 <div>
-                  <h3>Paste to the at the body </h3>
+                  <h3>Done!</h3>
                   <p>
-                    <a>
-                      https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
-                    </a>
+                    The widget will automatically be injected into your website free of charge.
 
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="step d-flex">
-                <div class="step-number">
-                  3
-                </div>
-                <div>
-                  <h3>Buy Me a Coffee (donate)</h3>
-                  <p>
-                    <a>
-                      https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@1/file
-                    </a>
-
+                    <p>
+                      Free free to buy me a coffee though ☕.
+                      <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="bennyluk" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+                    </p>
                   </p>
                 </div>
               </div>
@@ -349,32 +390,111 @@
         </div>
       </section>
 
+      <section class="container">
+        <div class="text-center mb-5">
+          <h2>
+            FAQ
+          </h2>
+        </div>
 
-    </main>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="accordion" id="faq">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-one">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-one-collapse" aria-expanded="true" aria-controls="faq-one-collapse">
+                    Is this really free?
+                  </button>
+                </h2>
+                <div id="faq-one-collapse" class="accordion-collapse collapse show" aria-labelledby="faq-one">
+                  <div class="accordion-body">
+                    Short answer: <strong>Yes.</strong>. Long Answer: This plugin is under the <a href="https://opensource.org/licenses/MIT">MIT license</a>. You can still use the plugin for your whatever you want except just dont sell it as a product..
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-two">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-two-collapse" aria-expanded="true" aria-controls="faq-two-collapse">
+                    Does this widget make my website ADA Compliance
+                  </button>
+                </h2>
+                <div id="faq-two-collapse" class="accordion-collapse collapse" aria-labelledby="faq-two">
+                  <div class="accordion-body">
+                    <strong style="color:red;">No widget (including this one) will make your website automatically ADA Compliant. Do not be fooled by other paid online business.</strong>
+                    <br/>
+                    <br/>
+                    Please view articles such as <a href="https://www.accessibility.works/blog/avoid-accessibility-overlay-tools-toolbar-plugins/" target="_blank">Why Accessibility Overlay Solutions Fail to Protect or Serve</a>. Trust me, I've been working in the web industry and read the darn papers. There is more to it than just adding a plugin.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-three">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-three-collapse" aria-expanded="true" aria-controls="faq-three-collapse">
+                    SEO and Performance
+                  </button>
+                </h2>
+                <div id="faq-three-collapse" class="accordion-collapse collapse" aria-labelledby="faq-three">
+                  <div class="accordion-body">
+                    This plugin should not impact your SEO. I actually optimized this plugin that it works as non-blocking ( good for Google Page Insights). I believe this plugin is the fastest accessibility widget.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq-4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4-collapse" aria-expanded="false" aria-controls="faq-4-collapse">
+                    Can you help me set up this widget in my website ? Can you help me make my website more accessible ?
+                  </button>
+                </h2>
+                <div id="faq-4-collapse" class="accordion-collapse collapse" aria-labelledby="faq-4">
+                  <div class="accordion-body">
+                    <a href="https://forms.gle/M2WR2vpW7cSg29TQ9" target="_blank">Contact Me.</a> No promises. I will view my schedule.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-    One Pager
-    Home
-    Features
-    Pricing
-    Widgets
-    Contact Us
-    
-    <main>
-        Nice
     </main>
 
     <footer>
-
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-12 py-5" style="border-top: 1px solid rgba(0,0,0,.125);">
+            <div>
+              <a href="https://github.com/bennyluk/Sienna-Accessibility-Widget" target="_blank"><svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
+                  <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+              </svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+
 
     <script>
       document.querySelector('.copy-cdn-btn').addEventListener('click', () => {
         document.querySelector('.copy-cdn-btn').innerHTML = 'Copied !'
       })
+
+      document.querySelector('.demo-btn').addEventListener('click', () => {
+        let btn = document.querySelector('.asw-menu-btn')
+        if(btn) {
+          btn.click();
+        }
+      })
     </script>
 
-    <script src="../widget.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
+
+    <script src="./widget.js" defer></script>
 
    
 </body>

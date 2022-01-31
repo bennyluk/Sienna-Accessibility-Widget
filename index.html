@@ -264,7 +264,7 @@
 
 
             <div class="col-lg-3 col-md-6">
-              <div class="info-box mt-4 mt-lg-0">
+              <div class="info-box mt-4 mt-md-0 mt-lg-0">
                 <span class="material-icons" data-nosnippet>filter_b_and_w</span>
                 <h3>Colors Adjustment</h3>
                 <p>
@@ -274,7 +274,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-              <div class="info-box mt-4 mt-lg-0">
+              <div class="info-box mt-4 mt-md-0 mt-lg-0">
                 <span class="material-icons" data-nosnippet>local_library</span>
                 <h3>Reading Guide</h3>
                 <p>
@@ -536,12 +536,18 @@
         document.body.removeChild(aux);
       }
 
+      let copiedScript = false;
       const $linkInput = document.querySelector('.cdn-link-input');
       $linkInput.addEventListener('click', () => {
         copyToClipboard($linkInput.value);
         
         $linkInput.select();
         document.querySelector('.cdn-link span').innerText = 'Copied script to clipboard';
+
+        if(!copiedScript) {
+          gtag('event', 'copiedScript');
+          copiedScript = true;
+        }
       }, false)
 
       $linkInput.addEventListener('blur', () => {
@@ -552,8 +558,84 @@
         let btn = document.querySelector('.asw-menu-btn')
         if(btn) {
           btn.click();
+
+          gtag('event', 'clickDemoButton');
         }
-      }, false)
+      }, false);
+
+      document.querySelectorAll('.accordion-button').forEach(el => {
+        el.addEventListener('click', (event) => {
+          gtag('event', 'clickFAQItem', {
+            label: event.target.innerText.trim()
+          });
+        }, false);
+      });
+
+      if(typeof MutationObserver != 'undefined') {
+        var observer = new MutationObserver(function(mutations) {
+          const widget = document.querySelector('.asw-widget');
+
+          if(widget) {
+            let openedMenu = false;
+            widget.querySelector('.asw-menu-btn').addEventListener('click', () => {
+              if(!openedMenu) {
+                gtag('event', 'openMenu');
+                openedMenu = true;
+              }
+            }, false);
+
+            widget.querySelectorAll('.asw-btn').forEach(el => {
+              el.addEventListener('click', (event) => {
+                let label = Array.prototype.filter.call(event.target.childNodes, function (element) {
+                    return element.nodeType === Node.TEXT_NODE;
+                }).map(function (element) {
+                    return element.textContent;
+                }).join("").trim();
+
+                if(content) {
+                  gtag('event', 'clickWidgetButton', {
+                    label
+                  });
+                }
+              }, false);
+            })
+
+            widget.querySelector('.asw-minus').addEventListener('click', () => {
+              gtag('event', 'minusFontSize');
+            }, false);
+
+            widget.querySelector('.asw-plus').addEventListener('click', () => {
+              gtag('event', 'addFontSize');
+            }, false);
+
+            widget.querySelector('.asw-amount').addEventListener('click', () => {
+              gtag('event', 'clickedAmount');
+            }, false);
+
+            widget.querySelector('.asw-menu-reset').addEventListener('click', () => {
+              gtag('event', 'resetWidget');
+            }, false);
+
+            widget.querySelector('.asw-menu-close').addEventListener('click', () => {
+              gtag('event', 'closeWidgetButton');
+            }, false);
+
+            widget.querySelector('.asw-overlay').addEventListener('click', () => {
+              gtag('event', 'closeWidgetOverlay');
+            }, false);
+
+            observer.disconnect();
+          }
+        });
+
+        observer.observe(document, {attributes: true, childList: true, characterData: true, subtree:true});
+      }
+
+      window.onerror = (errorMsg, url, lineNumber) => {
+          gtag('event', 'exeception', {
+            errorMsg: `${lineNumber}:${errorMsg}`
+          })
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>

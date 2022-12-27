@@ -385,8 +385,8 @@
                     Copy-paste the <code>&lt;script&gt;</code> tag right before the closing <code>&lt;/body&gt;</code> tag of you website.
 
                     <div class="cdn-link">
-                      <input class="cdn-link-input" type="text" value='&lt;script src="https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@latest/sienna.min.js" defer&gt;&lt;/script&gt;' readonly="readonly">
-                      <span>Click to copy</span>
+                      <input class="cdn-link-input cdn-link-copy" type="text" value='&lt;script src="https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@master/sienna.min.js" defer&gt;&lt;/script&gt;' readonly="readonly">
+                      <span class="cdn-link-copy">Click to copy</span>
                     </div>
                     
                     <br/>
@@ -394,16 +394,19 @@
                     How to embed code in your website.
                     <ul>
                       <li>
-                        <a href="https://www.wpbeginner.com/plugins/how-to-easily-add-custom-code-in-wordpress-without-breaking-your-site/" target="_blank">Wordpress</a>
+                        <a href="https://accessibility-widget.pages.dev/how-to/add-free-accessibility-widget-to-squarespace" target="_blank">Squarespace</a>
                       </li>
                       <li>
-                        <a href="https://support.squarespace.com/hc/en-us/articles/205815928-Adding-custom-code-to-your-site" target="_blank">Squarespace</a>
+                        <a href="https://accessibility-widget.pages.dev/how-to/add-free-accessibility-widget-to-wordpress" target="_blank">Wordpress</a>
                       </li>
                       <li>
-                        <a href="https://support.wix.com/en/article/embedding-custom-code-to-your-site" target="_blank">Wix</a>
+                        <a href="https://accessibility-widget.pages.dev/how-to/add-free-accessibility-widget-to-wix" target="_blank">Wix</a>
                       </li>
                       <li>
-                        <a href="https://www.webnots.com/how-to-add-codes-in-header-and-footer-code-sections-of-weebly/#:~:text=throughout%20the%20site.-,Site%20level%20codes%20can%20be%20added%20under%20%E2%80%9CSettings%20%3E%20SEO%20%3E,will%20impact%20all%20blog%20posts." target="_blank">Weebly</a>
+                        <a href="https://accessibility-widget.pages.dev/how-to/add-free-accessibility-widget-to-weebly" target="_blank">Weebly</a>
+                      </li>
+                      <li>
+                        <a href="https://accessibility-widget.pages.dev/how-to/add-free-accessibility-widget-to-website" target="_blank">Websites</a>
                       </li>
                     </ul>
 
@@ -538,17 +541,19 @@
 
       let copiedScript = false;
       const $linkInput = document.querySelector('.cdn-link-input');
-      $linkInput.addEventListener('click', () => {
-        copyToClipboard($linkInput.value);
-        
-        $linkInput.select();
-        document.querySelector('.cdn-link span').innerText = 'Copied script to clipboard';
+      document.querySelectorAll(".cdn-link-copy").forEach(el => {
+        el.addEventListener('click', () => {
+          copyToClipboard($linkInput.value);
+          
+          $linkInput.select();
+          document.querySelector('.cdn-link span').innerText = 'Copied script to clipboard';
 
-        if(!copiedScript) {
-          gtag('event', 'copiedScript');
-          copiedScript = true;
-        }
-      }, false)
+          if(!copiedScript) {
+            gtag('event', 'copiedScript');
+            copiedScript = true;
+          }
+        })
+      })
 
       $linkInput.addEventListener('blur', () => {
         document.querySelector('.cdn-link span').innerText = 'Click to copy';
@@ -592,7 +597,7 @@
                     return element.textContent;
                 }).join("").trim();
 
-                if(content) {
+                if(label) {
                   gtag('event', 'clickWidgetButton', {
                     label
                   });

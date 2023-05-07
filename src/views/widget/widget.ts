@@ -27,8 +27,7 @@ export function renderWidget({
             });
         }
     });
-
-    // read the cookies
+    
     try {
         let settings = getSavedSettings() 
 

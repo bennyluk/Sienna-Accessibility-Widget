@@ -12,8 +12,6 @@ export const DEFAULT_OPTIONS: ISiennaOptions = {
     container: document.body
 }
 
-// import enLocale from './locales/en.json';
-
 export default function sienna(args?: ISiennaArgs) {
     let options: ISiennaOptions = {
         ...DEFAULT_OPTIONS,

@@ -2,7 +2,7 @@
 
 ![Banner Image](banner.png)
 
-[![GitHub license](https://img.shields.io/github/license/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/releases)
 [![GitHub issues](https://img.shields.io/github/issues/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/issues)
 

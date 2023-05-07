@@ -1,0 +1,293 @@
+<style>
+    .asw-menu {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px #00000080;
+        opacity: 1;
+        transition: .3s;
+        z-index: 500000;
+        overflow: hidden;
+        background: #f9f9f9;
+        width: 500px;
+        line-height: 1;
+        font-size: 16px;
+        height: calc(100% - 40px - 75px);
+        letter-spacing: 0.015em;
+        color: #000 !important;
+    }
+
+    .asw-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 18px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: 700;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .asw-menu-header > div {
+        display: flex;
+    }
+
+    .asw-menu-header div[role="button"] {
+        padding: 12px;
+        cursor: pointer;
+    }
+
+    .asw-menu-header div[role="button"]:hover {
+        opacity: 0.8;
+    }
+
+    .asw-card {
+        margin: 0 15px 30px;
+    }
+
+    .asw-card-title {
+        font-size: 20px;
+        padding: 15px 0;
+        font-weight: 700;
+        color: #555;
+    }
+
+    .asw-menu .asw-select {
+        width: 100% !important;
+        padding: 10px !important;
+        font-size: 16px !important;
+        font-family: inherit !important;
+        font-weight: 400 !important;
+        border-radius: 4px !important;
+        background: #fff !important;
+        border: none !important;
+        border: 1px solid #dedede !important;
+        min-height: 45px !important;
+        max-height: 45px !important;
+        height: 45px !important;
+    }
+
+    .asw-items {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .asw-btn {
+        aspect-ratio: 6 / 5;
+        border-radius: 4px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: #333;
+        font-size: 16px !important;
+        background: #fff;
+        border: 1px solid #dedede;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        line-height: 1.4;
+    }
+
+    .asw-btn .asw-translate {
+        font-size: 15px !important;
+    }
+
+    .asw-btn .material-icons {
+        margin-bottom: 16px;
+    }
+
+    .asw-btn:hover {
+        border-color: #0048ff;
+    }
+
+    .asw-btn.asw-selected {
+        background: #0048ff;
+        color: white;
+        border-color: #0048ff;
+    }
+
+    .asw-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 16px;
+        text-align: center;
+        color: #333;
+        border-top: 1px solid #eee;
+    }
+
+    .asw-footer a {
+        font-size: 14px !important;
+        text-decoration: underline;
+        color: #0648ff;
+        background: transparent !important;
+        font-weight: 700;
+    }
+
+    .asw-plus:hover,
+    .asw-minus:hover {
+        opacity: 0.8;
+    }
+
+    .asw-menu-content {
+        overflow: scroll;
+        max-height: calc(100% - 80px);
+        color: #333;
+        padding: 15px 0;
+    }
+
+    .asw-adjust-font {
+        background: #fff;
+        border: 1px solid #dedede;
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+
+    .asw-adjust-font .asw-label {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .asw-adjust-font > div {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        align-items: center;
+        font-size: 15px;
+    }
+
+    .asw-adjust-font .asw-label div {
+        font-size: 15px !important;
+    }
+
+    .asw-adjust-font div[role="button"] {
+        background: #0648ff;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    .asw-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+    }
+
+    @media only screen and (max-width: 560px) {
+        .asw-menu {
+            width: calc(100% - 20px);
+            left: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 420px) {
+        .asw-items {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.5rem;
+        }
+
+        .asw-menu {
+            width: calc(100% - 20px);
+            left: 10px;
+        }
+
+    }
+</style>
+
+<div class="asw-menu">
+    <div class="asw-menu-header">
+        <div class="asw-translate">
+            Accessibility Menu
+        </div>
+        <div>
+            <div role="button" class="asw-menu-reset"  title="Reset settings">
+                <span class="material-icons">
+                    restart_alt
+                </span>
+            </div>
+            <div role="button" class="asw-menu-close" title="Close">
+                <span class="material-icons">
+                    close
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="asw-menu-content">
+        <div class="asw-card">
+            <select id="asw-language" title="Language" class="asw-select"></select>
+        </div>
+
+        <div class="asw-card">
+            <div class="asw-card-title">
+                Content Adjustments
+            </div>
+            <div class="asw-adjust-font">
+                <div class="asw-label" style="margin:0;">
+                    <span class="material-icons" style="margin-right:8px;">
+                        format_size
+                    </span>
+                    <div class="asw-translate">
+                        Adjust Font Size
+                    </div>
+                </div>
+                <div>
+                    <div class="asw-minus" data-key="font-size" role="button" aria-pressed="false" title="Decrease Font Size">
+                        <span class="material-icons">
+                            remove
+                        </span>
+                    </div>
+                    <div class="asw-amount" style="font-weight:400;">
+                        100%
+                    </div>
+                    <div class="asw-plus" data-key="font-size" role="button" aria-pressed="false" title="Increase Font Size">
+                        <span class="material-icons">
+                            add
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="asw-items content">
+            </div>
+        </div>
+
+        <div class="asw-card">
+            <div class="asw-card-title">
+                Color Adjustments
+            </div>
+            <div class="asw-items contrast">
+            </div>
+        </div>
+
+        <div class="asw-card">
+            <div class="asw-card-title ">
+                Tools
+            </div>
+            <div class="asw-items tools">
+            </div>
+        </div>
+    </div>
+    
+    <div class="asw-footer">
+        <a href="https://accessibility-widget.pages.dev">Accessibility Widget by Sienna</a> 
+    </div>
+</div>
+
+<div class="asw-overlay">
+</div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;text=format_size,add,remove,restart_alt,close,title,link,local_parking,nightlight,brightness_5,tonality,filter_vintage,gradient,filter_b_and_w,local_library,zoom_in,mouse,format_bold,format_line_spacing,space_bar,spellcheck" rel="stylesheet">

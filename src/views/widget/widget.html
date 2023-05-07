@@ -1,0 +1,71 @@
+<style>
+    .asw-widget,
+    .asw-menu {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .asw-widget *,
+    .asw-menu * {
+        box-sizing: border-box;
+    }
+
+    .asw-menu-btn {
+        position: fixed;
+        z-index: 500000;
+        left: 20px;
+        bottom: 20px;
+        background: #0048ff !important;
+        box-shadow: 0 5px 15px 0 rgb(37 44 97 / 15%), 0 2px 4px 0 rgb(93 100 148 / 20%);
+        transition: .3s;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        transform: scale(1);
+        width: 54px;
+        height: 54px;
+        display: flex;
+        cursor: pointer;
+        border: 4px solid white !important;
+        outline: 4px solid #0048ff!important;
+    }
+
+    .asw-menu-btn svg {
+        width: 30px;
+        height: 30px;
+        min-height: 30px;
+        min-width: 30px;
+        max-width: 30px;
+        max-height: 30px;
+        background: transparent !important;
+    }
+
+    .asw-menu-btn:hover {
+        transform: scale(1.1);
+    }
+
+    @media only screen and (max-width: 560px) {
+        .asw-menu-btn {
+            width: 38px;
+            height: 38px;
+        }
+
+        .asw-menu-btn svg {
+            width: 24px;
+            height: 24px;
+            min-height: 24px;
+            min-width: 24px;
+            max-width: 24px;
+            max-height: 24px;
+        }
+    }
+</style>
+<div class="asw-widget">
+    <a href="https://accessibility-widget.pages.dev" target="_blank" class="asw-menu-btn" title="Open Accessibility Menu" role="button" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" style="fill:white;" viewBox="0 0 24 24" width="30px" height="30px" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+    </a>
+</div>

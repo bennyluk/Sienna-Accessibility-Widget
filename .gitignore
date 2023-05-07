@@ -1,0 +1,11 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore compiled output
+dist/
+
+# Ignore any temporary files
+*.log
+*.swp
+*.tmp
+*.tmp.*

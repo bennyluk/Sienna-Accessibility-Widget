@@ -7,6 +7,8 @@ import ko from "../locales/ko.json";
 import ja from "../locales/ja.json";
 import fr from "../locales/fr.json";
 import it from "../locales/it.json";
+import id from "../locales/id.json";
+import el from "../locales/el.json";
 import zh from "../locales/zh-Hans.json";
 
 export interface ILanguage {
@@ -18,6 +20,7 @@ export const LANGUAGE_DICTIONARY = {
   ar: ar,
   de: de,
   en: en,
+  el: el,
   es: es,
   fr: fr,
   hi: hi,
@@ -25,16 +28,17 @@ export const LANGUAGE_DICTIONARY = {
   ja: ja,
   ko: ko,
   zh: zh,
+  id: id
 };
 
 export const LANGUAGES: ILanguage[] = [
   {
     code: 'ar',
-    label: 'Arabic',
+    label: 'العربية',
   },
   {
     code: 'de',
-    label: 'German',
+    label: 'Deutsch',
   },
   {
     code: 'en',
@@ -42,30 +46,38 @@ export const LANGUAGES: ILanguage[] = [
   },
   {
     code: 'es',
-    label: 'Spanish',
+    label: 'Español',
   },
   {
     code: 'fr',
-    label: 'French',
+    label: 'Français',
+  },
+  {
+    code: 'el',
+    label: 'Ελληνικά',
   },
   {
     code: 'hi',
-    label: 'Hindi',
+    label: 'हिन्दी',
   },
   {
     code: 'it',
-    label: 'Italian',
+    label: 'Italiano',
+  },
+  {
+    code: 'id',
+    label: 'Bahasa Indonesia',
   },
   {
     code: 'ja',
-    label: 'Japanese',
+    label: '日本語',
   },
   {
     code: 'ko',
-    label: 'Korean',
+    label: '한국어',
   },
   {
     code: 'zh',
-    label: 'Chinese (Simplified)',
+    label: '简体中文',
   },
 ];

@@ -4,6 +4,7 @@ import toggle from "../../utils/toggle";
 import { renderMenu } from "../menu/menu";
 import { getSavedSettings, saveSettings } from "../../storage";
 import runAccessibility from "../menu/runAccessibility";
+import { LANGUAGE_DICTIONARY } from "../../enum/Languages";
 
 export interface IRenderWidgetArgs {
     container: HTMLElement
@@ -29,11 +30,23 @@ export function renderWidget({
     });
     
     try {
-        let settings = getSavedSettings() 
+        let settings = getSavedSettings();
 
         if(settings) {
             saveSettings(JSON.parse(settings));
             runAccessibility();
+        } else {
+            let lang = document?.querySelector('html')?.getAttribute('lang') ?? "en";
+
+            if(LANGUAGE_DICTIONARY[lang]) {
+                lang = lang
+            } else {
+                lang = "en";
+            }
+
+            saveSettings({
+                lang
+            });
         }
     } catch(e) {
         // silent error

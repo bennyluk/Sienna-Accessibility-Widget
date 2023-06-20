@@ -99,8 +99,24 @@ export function renderMenu({
     if($lang) {
         $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
+        $lang.value = getSettings().lang;
+
+        $lang?.addEventListener("change", () => {
+            saveSettings({
+                lang: $lang.value
+            });
+    
+            translateMenu(menu);
+        });
+
+        translateMenu(menu);
+
+
+        /*
         let htmlLang = document.querySelector('html').getAttribute('lang');
         $lang.value = LANGUAGE_DICTIONARY[htmlLang] ? htmlLang : getSettings().lang;
+
+        $lang.value = "es"
     
         $lang?.addEventListener("change", () => {
             saveSettings({
@@ -108,7 +124,14 @@ export function renderMenu({
             });
     
             translateMenu(menu);
-        })
+        });
+
+        saveSettings({
+            lang: "es"
+        });
+
+        translateMenu(menu);
+        */
     }
 
     container.appendChild(menu);

@@ -1,17 +1,22 @@
+import bigCursorIcon from "../icons/bigCursorIcon.svg"
+import stopAnimationsIcon from "../icons/stopAnimationsIcon.svg"
+import readingGuideIcon from "../icons/readingGuideIcon.svg"
+
+
 export default [
     {
         label: 'Big Cursor',
         key: 'big-cursor',
-        icon: 'mouse',
+        icon: bigCursorIcon,
     },
     {
         label: 'Stop Animations',
         key: 'stop-animations',
-        icon: 'motion_photos_off',
+        icon: stopAnimationsIcon,
     },
     {
         label: 'Reading Guide',
         key: 'readable-guide',
-        icon: 'local_library',
+        icon: readingGuideIcon,
     },
 ]

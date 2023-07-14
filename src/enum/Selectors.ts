@@ -1,4 +1,4 @@
-export const ALL_SELECTOR = ['', '*:not(.material-icons)']
+export const ALL_SELECTOR = ['', '*:not(.material-icons,.asw-menu,.asw-menu *)']
 
 export const LINKS_SELECOTR = ["a[href]"];
 

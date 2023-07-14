@@ -8,6 +8,10 @@ import ja from "../locales/ja.json";
 import fr from "../locales/fr.json";
 import it from "../locales/it.json";
 import id from "../locales/id.json";
+import pt from "../locales/pt.json";
+import he from "../locales/he.json";
+import ro from "../locales/ro.json";
+import ms from "../locales/ms.json";
 import el from "../locales/el.json";
 import zh from "../locales/zh-Hans.json";
 
@@ -28,56 +32,76 @@ export const LANGUAGE_DICTIONARY = {
   ja: ja,
   ko: ko,
   zh: zh,
-  id: id
+  id: id,
+  pt: pt,
+  he: he,
+  ro: ro,
+  ms: ms
 };
 
 export const LANGUAGES: ILanguage[] = [
   {
-    code: 'ar',
-    label: 'العربية',
+  code: 'ar',
+  label: 'العربية',
   },
   {
-    code: 'de',
-    label: 'Deutsch',
+  code: 'de',
+  label: 'Deutsch',
   },
   {
-    code: 'en',
-    label: 'English',
+  code: 'el',
+  label: 'Ελληνικά',
   },
   {
-    code: 'es',
-    label: 'Español',
+  code: 'en',
+  label: 'English',
   },
   {
-    code: 'fr',
-    label: 'Français',
+  code: 'es',
+  label: 'Español',
   },
   {
-    code: 'el',
-    label: 'Ελληνικά',
+  code: 'fr',
+  label: 'Français',
   },
   {
-    code: 'hi',
-    label: 'हिन्दी',
+  code: 'he',
+  label: 'עברית',
   },
   {
-    code: 'it',
-    label: 'Italiano',
+  code: 'hi',
+  label: 'हिन्दी',
   },
   {
-    code: 'id',
-    label: 'Bahasa Indonesia',
+  code: 'id',
+  label: 'Bahasa Indonesia',
   },
   {
-    code: 'ja',
-    label: '日本語',
+  code: 'it',
+  label: 'Italiano',
   },
   {
-    code: 'ko',
-    label: '한국어',
+  code: 'ja',
+  label: '日本語',
   },
   {
-    code: 'zh',
-    label: '简体中文',
+  code: 'ko',
+  label: '한국어',
+  },
+  {
+  code: 'ms',
+  label: 'Bahasa Malaysia',
+  },
+  {
+  code: 'pt',
+  label: 'Português',
+  },
+  {
+  code: 'ro',
+  label: 'Română',
+  },
+  {
+  code: 'zh',
+  label: '简体中文',
   },
 ];

@@ -6,7 +6,11 @@
       "allowJs": true,
       "moduleResolution": "node",
       "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true
+      "allowSyntheticDefaultImports": true,
+      "types": [
+        "node",
+        "./svg.d.ts"
+      ]
     },
     "include": [
       "./src/**/*.ts"

@@ -95,11 +95,12 @@ export function renderMenu({
     });
 
     let $lang: HTMLSelectElement = menu.querySelector("#asw-language");
+    let settings = getSettings();
 
     if($lang) {
         $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
-        $lang.value = getSettings().lang;
+        $lang.value = settings.lang;
 
         $lang?.addEventListener("change", () => {
             saveSettings({
@@ -110,28 +111,15 @@ export function renderMenu({
         });
 
         translateMenu(menu);
+    }
 
-
-        /*
-        let htmlLang = document.querySelector('html').getAttribute('lang');
-        $lang.value = LANGUAGE_DICTIONARY[htmlLang] ? htmlLang : getSettings().lang;
-
-        $lang.value = "es"
-    
-        $lang?.addEventListener("change", () => {
-            saveSettings({
-                lang: $lang.value
-            });
-    
-            translateMenu(menu);
-        });
-
-        saveSettings({
-            lang: "es"
-        });
-
-        translateMenu(menu);
-        */
+    if(settings.states) {
+        for(let key in settings.states) {
+            if(settings.states[key] && key !== "fontSize") {
+                let selector = key === "contrast" ? settings.states[key] : key;
+                menu.querySelector(`.asw-btn[data-key="${ selector }"]`)?.classList?.add("asw-selected")
+            }
+        }
     }
 
     container.appendChild(menu);

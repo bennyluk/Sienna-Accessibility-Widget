@@ -59,6 +59,12 @@ module.exports = {
               'raw-loader',
             ],
         },
+        {
+          test: /\.svg$/,
+          use: [
+            "raw-loader"
+          ]
+        }
       ],
   },
   plugins: [

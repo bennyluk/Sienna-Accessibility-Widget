@@ -8,6 +8,7 @@ import highlightLinks from "../../tools/highlightLinks";
 import adjustLetterSpacing from "../../tools/adjustLetterSpacing";
 import adjustLineHeight from "../../tools/adjustLineHeight";
 import adjustFontWeight from "../../tools/adjustFontWeight";
+import screenReader from "../../tools/screenReader";
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -24,4 +25,6 @@ export default function renderTools() {
     readingGuide(states['readable-guide']);
     stopAnimations(states['stop-animations']);
     bigCursor(states['big-cursor']);
+
+    screenReader(states['highlight-title'])
 }

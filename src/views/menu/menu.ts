@@ -100,6 +100,11 @@ export function renderMenu({
     if($lang) {
         $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
+        /*
+        const scriptLang = document?.currentScript?.getAttribute("lang");
+        console.log(scriptLang)
+        */
+
         $lang.value = settings.lang;
 
         $lang?.addEventListener("change", () => {

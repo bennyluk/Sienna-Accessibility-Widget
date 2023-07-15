@@ -15,12 +15,16 @@
         font-size: 16px;
         height: calc(100% - 40px - 75px);
         letter-spacing: 0.015em;
+    }
+
+    .asw-menu * {
         color: #000 !important;
     }
 
     .asw-menu svg {
         width: 24px;
         height: 24px;
+        background: transparent !important;
         fill: currentColor;
     }
 
@@ -113,8 +117,18 @@
 
     .asw-btn.asw-selected {
         background: #0048ff;
-        color: white;
         border-color: #0048ff;
+    }
+
+    .asw-btn.asw-selected *,
+    .asw-adjust-font div[role="button"] svg {
+        fill: #fff !important;
+        color: #fff !important;
+        background-color: transparent !important;
+    }
+
+    html.aws-filter .asw-menu button {
+
     }
 
     .asw-footer {
@@ -181,7 +195,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
         cursor: pointer;
     }
 

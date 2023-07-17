@@ -100,12 +100,15 @@ export function renderMenu({
     if($lang) {
         $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
-        /*
-        const scriptLang = document?.currentScript?.getAttribute("lang");
-        console.log(scriptLang)
-        */
+        const scriptLang = document?.querySelector("[data-asw-lang]")?.getAttribute("data-asw-lang");
 
-        $lang.value = settings.lang;
+        if(scriptLang) {
+            saveSettings({
+                lang: scriptLang
+            });
+        }
+        
+        $lang.value = scriptLang || settings.lang;
 
         $lang?.addEventListener("change", () => {
             saveSettings({

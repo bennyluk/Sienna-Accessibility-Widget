@@ -1,7 +1,7 @@
 import bigCursorIcon from "../icons/bigCursorIcon.svg"
 import stopAnimationsIcon from "../icons/stopAnimationsIcon.svg"
 import readingGuideIcon from "../icons/readingGuideIcon.svg"
-
+import voiceModeIcon from "../icons/voiceModeIcon.svg"
 
 export default [
     {
@@ -18,5 +18,10 @@ export default [
         label: 'Reading Guide',
         key: 'readable-guide',
         icon: readingGuideIcon,
+    },
+    {
+        label: 'Voice Mode',
+        key: 'screen-reader',
+        icon: voiceModeIcon,
     },
 ]

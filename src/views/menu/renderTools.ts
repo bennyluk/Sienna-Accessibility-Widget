@@ -26,5 +26,5 @@ export default function renderTools() {
     stopAnimations(states['stop-animations']);
     bigCursor(states['big-cursor']);
 
-    screenReader(states['highlight-title'])
+    screenReader(states['screen-reader'])
 }

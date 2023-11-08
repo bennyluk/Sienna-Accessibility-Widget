@@ -26,13 +26,11 @@ export function renderMenu({
 }: IRenderMenuArgs) {
     const menu: HTMLElement = document.createElement("div");
     menu.innerHTML = template;
-    const $amount: HTMLDivElement = menu.querySelector(".asw-amount");
 
     menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
     menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
     menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
-    $amount.innerText = `${(getState("fontSize") ?? 1) * 100}%`;
-
+    (menu.querySelector(".asw-amount") as HTMLDivElement).innerText = `${(getState("fontSize") ?? 1) * 100}%`;
 
     menu.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
         el.addEventListener('click', () => {

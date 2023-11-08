@@ -26,10 +26,13 @@ export function renderMenu({
 }: IRenderMenuArgs) {
     const menu: HTMLElement = document.createElement("div");
     menu.innerHTML = template;
+    const $amount: HTMLDivElement = menu.querySelector(".asw-amount");
 
     menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
     menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
     menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
+    $amount.innerText = `${(getState("fontSize") ?? 1) * 100}%`;
+
 
     menu.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
         el.addEventListener('click', () => {
@@ -42,7 +45,7 @@ export function renderMenu({
             const margin = 0.1;
 
             let fontSize = getState("fontSize") ?? 1;
-            if(el.classList.contains('asw-minus')) {
+            if (el.classList.contains('asw-minus')) {
                 fontSize -= margin;
             } else {
                 fontSize += margin;
@@ -51,7 +54,7 @@ export function renderMenu({
             fontSize = Math.max(fontSize, 0.1);
             fontSize = Math.min(fontSize, 2);
             fontSize = Number(fontSize.toFixed(2));
-            
+
             adjustFontSize(fontSize);
 
             saveState({ fontSize });
@@ -64,7 +67,7 @@ export function renderMenu({
 
             let isSelected = !el.classList.contains("asw-selected");
 
-            if(el.classList.contains('asw-filter')) {
+            if (el.classList.contains('asw-filter')) {
                 menu.querySelectorAll('.asw-filter').forEach((el: HTMLElement) => {
                     el.classList.remove('asw-selected');
                 });
@@ -73,7 +76,7 @@ export function renderMenu({
                     contrast: isSelected ? key : false
                 });
 
-                if(isSelected) {
+                if (isSelected) {
                     el.classList.add('asw-selected');
                 }
 
@@ -97,35 +100,35 @@ export function renderMenu({
     let $lang: HTMLSelectElement = menu.querySelector("#asw-language");
     let settings = getSettings();
 
-    if($lang) {
+    if ($lang) {
         $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
         const scriptLang = document?.querySelector("[data-asw-lang]")?.getAttribute("data-asw-lang");
 
-        if(scriptLang) {
+        if (scriptLang) {
             saveSettings({
                 lang: scriptLang
             });
         }
-        
+
         $lang.value = scriptLang || settings.lang;
 
         $lang?.addEventListener("change", () => {
             saveSettings({
                 lang: $lang.value
             });
-    
+
             translateMenu(menu);
         });
 
         translateMenu(menu);
     }
 
-    if(settings.states) {
-        for(let key in settings.states) {
-            if(settings.states[key] && key !== "fontSize") {
+    if (settings.states) {
+        for (let key in settings.states) {
+            if (settings.states[key] && key !== "fontSize") {
                 let selector = key === "contrast" ? settings.states[key] : key;
-                menu.querySelector(`.asw-btn[data-key="${ selector }"]`)?.classList?.add("asw-selected")
+                menu.querySelector(`.asw-btn[data-key="${selector}"]`)?.classList?.add("asw-selected")
             }
         }
     }

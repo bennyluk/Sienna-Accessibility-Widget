@@ -33,10 +33,12 @@ export function renderWidget(options: ISeinnaSettings) {
             });
         }
     });
+
+    
+    translateMenu(widget);
     
     document.body.appendChild(widget);
 
-    translateMenu();
 
     return widget;
 }

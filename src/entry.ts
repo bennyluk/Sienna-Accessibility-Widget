@@ -5,7 +5,10 @@ document?.addEventListener("DOMContentLoaded", () => {
     let position = document?.querySelector("[data-asw-position]")?.getAttribute("data-asw-position");
 
     if(!lang) {
-        lang = document?.querySelector('html')?.getAttribute('lang')
+        lang = document?.querySelector('html')?.getAttribute('lang')?.replace(/[_-].*/, '');
+    }
+    if(!lang && typeof navigator !== "undefined" && navigator?.language) {
+        lang = navigator?.language;
     }
 
     sienna({

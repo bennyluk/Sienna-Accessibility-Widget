@@ -15,8 +15,7 @@ export const DEFAULT_OPTIONS: ISeinnaSettings = {
 
 export default function sienna(args?: ISeinnaSettings) {
     let options = {
-        ...DEFAULT_OPTIONS,
-        ...args
+        ...DEFAULT_OPTIONS
     };
 
     try {
@@ -26,15 +25,18 @@ export default function sienna(args?: ISeinnaSettings) {
             ...options,
             ...settings,
         }
-
-        saveSettings(options);
         
         runAccessibility();
     } catch(e) {
         // silent error
     }
 
-    console.log(options);
+    options = {
+        ...options,
+        ...args
+    }
+    
+    saveSettings(options);
 
     renderWidget(options);
 }

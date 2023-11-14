@@ -1,8 +1,6 @@
 import { getCookie, setCookie } from "./utils/cookies";
 import { ISettings } from "./types/ISettings";
 
-
-
 let settings: ISettings = {};
 
 export const COOKIE_KEY = "asw";

@@ -122,10 +122,10 @@ export function renderMenu({
             lang: $lang.value
         });
 
-        translateMenu();
+        translateMenu(container);
     });
 
-    translateMenu();
+    translateMenu($menu);
     
     if(settings.states) {
         for(let key in settings.states) {

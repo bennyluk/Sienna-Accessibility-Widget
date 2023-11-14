@@ -61,7 +61,7 @@ export function renderMenu({
             fontSize = Math.min(fontSize, 2);
             fontSize = Number(fontSize.toFixed(2));
             
-            adjustFontSize(fontSize);
+            adjustFontSize(fontSize || 1);
 
             saveState({ fontSize });
         });
@@ -105,6 +105,12 @@ export function renderMenu({
 
     
     let settings = getSettings();
+
+    let fontSize = Number(settings?.states?.fontSize) || 1;
+
+    if(fontSize != 1) {
+        $menu.querySelector(".asw-amount").innerHTML = `${ fontSize * 100 }%`;
+    }
 
     let $lang: HTMLSelectElement = $menu.querySelector("#asw-language");
     $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');

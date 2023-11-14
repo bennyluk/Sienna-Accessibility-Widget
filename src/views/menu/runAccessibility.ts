@@ -6,7 +6,7 @@ import renderTools from "./renderTools";
 export default function runAccessibility() {
     let { states } = getSettings();
 
-    adjustFontSize(states['fontSize']);
+    adjustFontSize(states?.['fontSize'] || 1);
     renderTools();
     renderFilter();
 }

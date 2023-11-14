@@ -12,6 +12,7 @@ import pt from "../locales/pt.json";
 import he from "../locales/he.json";
 import ro from "../locales/ro.json";
 import ms from "../locales/ms.json";
+import tr from "../locales/tr.json";
 import el from "../locales/el.json";
 import zh from "../locales/zh-Hans.json";
 
@@ -36,7 +37,8 @@ export const LANGUAGE_DICTIONARY = {
   pt: pt,
   he: he,
   ro: ro,
-  ms: ms
+  ms: ms,
+  tr: tr
 };
 
 export const LANGUAGES: ILanguage[] = [
@@ -99,6 +101,10 @@ export const LANGUAGES: ILanguage[] = [
   {
   code: 'ro',
   label: 'Română',
+  },
+  {
+    code: 'tr',
+    label: 'Türkçe'
   },
   {
   code: 'zh',

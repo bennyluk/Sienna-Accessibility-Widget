@@ -1,15 +1,9 @@
 import { getCookie, setCookie } from "./utils/cookies";
 import { ISettings } from "./types/ISettings";
 
-const DEFAULT_SETTINGS: ISettings = {
-    lang: 'en',
-    states: {
-        fontSize: 1
-    },
-    updatedAt: new Date()
-};
 
-let settings: ISettings = DEFAULT_SETTINGS;
+
+let settings: ISettings = {};
 
 export const COOKIE_KEY = "asw";
 
@@ -19,8 +13,7 @@ export function saveState(payload): ISettings {
         states: {
             ...settings.states,
             ...payload
-        },
-        updatedAt: new Date()
+        }
     };
     saveSettings(newSettings);
     return newSettings;
@@ -45,9 +38,8 @@ export function getSettings(cache: boolean = true): ISettings {
         const savedSettings = getSavedSettings();
         if (savedSettings) {
             settings = JSON.parse(savedSettings);
-        } else {
-            settings = DEFAULT_SETTINGS;
         }
+        
         return settings;
     }
 }

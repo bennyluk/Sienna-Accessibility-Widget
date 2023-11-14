@@ -11,8 +11,10 @@ function getTranslatedLabel(el, defaultValue) {
     return t(label);
 }
 
-export default function translateMenu(menu) {
-    menu.querySelectorAll(".asw-card-title, .asw-translate").forEach(el => {
+export default function translateMenu() {
+    let menu = document.querySelector(".asw-container");
+
+    menu.querySelectorAll(".asw-card-title, .asw-translate").forEach((el: HTMLDivElement) => {
         el.innerText = getTranslatedLabel(el, String(el.innerText || "").trim());
     })
 

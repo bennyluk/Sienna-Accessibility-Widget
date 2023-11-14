@@ -15,29 +15,38 @@ import renderFilter from "./renderFilter";
 import translateMenu from "./translateMenu";
 
 import { ILanguage, LANGUAGES } from "../../enum/Languages";
-import { LANGUAGE_DICTIONARY } from "../../enum/Languages";
 
 export interface IRenderMenuArgs {
-    container: HTMLElement
+    container: HTMLElement,
+    position?: string,
+    lang?: string
 }
 
 export function renderMenu({
-    container
+    container,
+    ...options
 }: IRenderMenuArgs) {
-    const menu: HTMLElement = document.createElement("div");
-    menu.innerHTML = template;
+    const $container: HTMLElement = document.createElement("div");
+    $container.innerHTML = template;
 
-    menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
-    menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
-    menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
+    const $menu: HTMLElement = $container.querySelector(".asw-menu");
 
-    menu.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
+    if(options.position === "bottom-right") {
+        $menu.style.right = '20px';
+        $menu.style.left = 'auto';
+    }
+
+    $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
+    $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
+    $menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
+
+    $menu.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
         el.addEventListener('click', () => {
-            toggle(menu, false)
+            toggle($container, false)
         });
     })
 
-    menu.querySelectorAll(".asw-adjust-font div[role='button']").forEach((el: HTMLElement) => {
+    $menu.querySelectorAll(".asw-adjust-font div[role='button']").forEach((el: HTMLElement) => {
         el.addEventListener("click", () => {
             const margin = 0.1;
 
@@ -58,14 +67,14 @@ export function renderMenu({
         });
     });
 
-    menu.querySelectorAll(".asw-btn").forEach((el: HTMLElement) => {
+    $menu.querySelectorAll(".asw-btn").forEach((el: HTMLElement) => {
         el.addEventListener("click", () => {
             let key = el.dataset.key;
 
             let isSelected = !el.classList.contains("asw-selected");
 
             if(el.classList.contains('asw-filter')) {
-                menu.querySelectorAll('.asw-filter').forEach((el: HTMLElement) => {
+                $menu.querySelectorAll('.asw-filter').forEach((el: HTMLElement) => {
                     el.classList.remove('asw-selected');
                 });
 
@@ -90,47 +99,44 @@ export function renderMenu({
         });
     });
 
-    menu.querySelector('.asw-menu-reset')?.addEventListener('click', () => {
+    $menu.querySelector('.asw-menu-reset')?.addEventListener('click', () => {
         reset();
     });
 
-    let $lang: HTMLSelectElement = menu.querySelector("#asw-language");
+    
     let settings = getSettings();
 
-    if($lang) {
-        $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
+    let $lang: HTMLSelectElement = $menu.querySelector("#asw-language");
+    $lang.innerHTML = LANGUAGES.map((lang: ILanguage) => `<option value="${lang.code}">${lang.label}</option>`).join('');
 
-        const scriptLang = document?.querySelector("[data-asw-lang]")?.getAttribute("data-asw-lang");
-
-        if(scriptLang) {
-            saveSettings({
-                lang: scriptLang
-            });
-        }
-        
-        $lang.value = scriptLang || settings.lang;
-
-        $lang?.addEventListener("change", () => {
-            saveSettings({
-                lang: $lang.value
-            });
+    if(settings.lang !== options.lang) {
+        saveSettings({
+            lang: options.lang
+        });
+    }
     
-            translateMenu(menu);
+    $lang.value = options?.lang || "en";
+
+    $lang?.addEventListener("change", () => {
+        saveSettings({
+            lang: $lang.value
         });
 
-        translateMenu(menu);
-    }
+        translateMenu();
+    });
 
+    translateMenu();
+    
     if(settings.states) {
         for(let key in settings.states) {
             if(settings.states[key] && key !== "fontSize") {
                 let selector = key === "contrast" ? settings.states[key] : key;
-                menu.querySelector(`.asw-btn[data-key="${ selector }"]`)?.classList?.add("asw-selected")
+                $menu.querySelector(`.asw-btn[data-key="${ selector }"]`)?.classList?.add("asw-selected")
             }
         }
     }
 
-    container.appendChild(menu);
+    container.appendChild($container);
 
-    return menu;
+    return $container;
 }

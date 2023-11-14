@@ -5,7 +5,7 @@ export interface ISettingsStates {
 }
 
 export interface ISettings {
-    lang: string;
-    states: ISettingsStates;
-    updatedAt: Date;
+    lang?: string;
+    states?: ISettingsStates;
+    updatedAt?: Date;
 }

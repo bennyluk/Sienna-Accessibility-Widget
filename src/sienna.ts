@@ -1,26 +1,40 @@
+import { LANGUAGE_DICTIONARY } from "./enum/Languages";
+import { getSavedSettings, getSettings, saveSettings } from "./storage";
+import runAccessibility from "./views/menu/runAccessibility";
 import { renderWidget } from "./views/widget/widget"
 
-export interface ISiennaOptions {
-    container: HTMLElement
+export interface ISeinnaSettings {
+    lang?: any,
+    position?: any | 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right'
 }
 
-export interface ISiennaArgs {
-    options?: ISiennaOptions
+export const DEFAULT_OPTIONS: ISeinnaSettings = {
+    lang: 'en',
+    position: 'bottom-right'
 }
 
-export const DEFAULT_OPTIONS: ISiennaOptions = {
-    container: document.body
-}
-
-export default function sienna(args?: ISiennaArgs) {
-    let options: ISiennaOptions = {
+export default function sienna(args?: ISeinnaSettings) {
+    let options = {
         ...DEFAULT_OPTIONS,
         ...args
+    };
+
+    try {
+        let settings = getSettings(false);
+
+        options = {
+            ...options,
+            ...settings,
+        }
+
+        saveSettings(options);
+        
+        runAccessibility();
+    } catch(e) {
+        // silent error
     }
 
-    renderWidget({
-        container: options.container
-    });
+    console.log(options);
 
-    return {}
+    renderWidget(options);
 }

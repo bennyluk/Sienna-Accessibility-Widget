@@ -5,6 +5,7 @@ function getTextFromNode(node) {
 }
 
 function getFullSentence(node: Node): string {
+  return;
   if (!node) {
     return '';
   }
@@ -15,8 +16,8 @@ function getFullSentence(node: Node): string {
 
   while (prevNode) {
     if (
-        prevNode.nodeType === Node.TEXT_NODE || 
-        elementNodeNames.includes(prevNode.nodeName)
+      prevNode.nodeType === Node.TEXT_NODE ||
+      elementNodeNames.includes(prevNode.nodeName)
     ) {
       const textContent = prevNode.textContent?.trim().replace(/[ \n]+/g, ' ');
       if (textContent) {
@@ -31,8 +32,8 @@ function getFullSentence(node: Node): string {
 
   while (nextNode) {
     if (
-        nextNode.nodeType === Node.TEXT_NODE || 
-        elementNodeNames.includes(nextNode.nodeName)
+      nextNode.nodeType === Node.TEXT_NODE ||
+      elementNodeNames.includes(nextNode.nodeName)
     ) {
       const textContent = nextNode.textContent?.trim().replace(/[ \n]+/g, ' ');
       if (textContent) {
@@ -48,41 +49,40 @@ function getFullSentence(node: Node): string {
 
 
 function speakText(text) {
-    if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
-        if (speechSynthesis.speaking) {
-            speechSynthesis.cancel();
-        }
-
-        console.log("speak:", text)
-
-        if(text) {
-            speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-        }
-    } else {
-        console.log('Text-to-speech not supported in this browser.');
+  return;
+  if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
+    if (speechSynthesis.speaking) {
+      speechSynthesis.cancel();
     }
+
+    if (text) {
+      speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+    }
+  } else {
+    console.log('Text-to-speech not supported in this browser.');
+  }
 }
-  
 
 
-export default function screenReader(enable=false) {
 
-    if(enable) {
-        (window as any).__asw__onClickScreenReader = (event) => {
-            var clickedElement = event.target;
+export default function screenReader(enable = false) {
+  return;
+  if (enable) {
+    (window as any).__asw__onClickScreenReader = (event) => {
+      var clickedElement = event.target;
 
-            if (!["BODY", "HEAD", "HTML"].includes(clickedElement.nodeName)) {
-                var selectedText = getFullSentence(clickedElement);
+      if (!["BODY", "HEAD", "HTML"].includes(clickedElement.nodeName)) {
+        var selectedText = getFullSentence(clickedElement);
 
-                speakText(selectedText);
-            }
-        }
-
-        document.addEventListener('click', (window as any).__asw__onClickScreenReader);
-    } else {
-        if((window as any).__asw__onClickScreenReader) {
-            document.removeEventListener('click', (window as any).__asw__onClickScreenReader);
-            delete (window as any).__asw__onClickScreenReader;
-        }
+        speakText(selectedText);
+      }
     }
+
+    document.addEventListener('click', (window as any).__asw__onClickScreenReader);
+  } else {
+    if ((window as any).__asw__onClickScreenReader) {
+      document.removeEventListener('click', (window as any).__asw__onClickScreenReader);
+      delete (window as any).__asw__onClickScreenReader;
+    }
+  }
 }

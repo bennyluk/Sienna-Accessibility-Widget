@@ -26,7 +26,7 @@ export function saveSettings(newSettings: any): void {
 }
 
 export function getState(key: string): any {
-    return settings.states[key];
+    return settings?.states?.[key];
 }
 
 export function getSettings(cache: boolean = true): ISettings {

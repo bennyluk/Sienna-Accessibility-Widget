@@ -43,7 +43,6 @@ export function generateCSSFromConfig(config: IToolConfig): string {
     let output = ""
 
     if(config) {
-        output += config.css ?? "";
         output += generateCSS(config.styles);
 
         if(output.length && config.selector) {
@@ -53,6 +52,8 @@ export function generateCSSFromConfig(config: IToolConfig): string {
                 css: output
             });
         }
+
+        output += config.css ?? "";
     }
 
     return output;

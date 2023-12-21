@@ -50,83 +50,83 @@ export const LANGUAGE_DICTIONARY = {
 
 export const LANGUAGES: ILanguage[] = [
   {
-  code: 'ar',
-  label: 'العربية',
+    code: 'ar',
+    label: 'العربية',
   },
   {
-  code: 'de',
-  label: 'Deutsch',
+    code: 'de',
+    label: 'Deutsch',
   },
   {
-  code: 'el',
-  label: 'Ελληνικά',
+    code: 'el',
+    label: 'Ελληνικά',
   },
   {
-  code: 'en',
-  label: 'English',
+    code: 'en',
+    label: 'English',
   },
   {
-  code: 'es',
-  label: 'Español',
+    code: 'es',
+    label: 'Español',
   },
   {
-  code: 'fr',
-  label: 'Français',
+    code: 'fr',
+    label: 'Français',
   },
   {
-  code: 'he',
-  label: 'עברית',
+    code: 'he',
+    label: 'עברית',
   },
   {
-  code: 'hi',
-  label: 'हिन्दी',
+    code: 'hi',
+    label: 'हिन्दी',
   },
   {
-  code: 'id',
-  label: 'Bahasa Indonesia',
+    code: 'hr',
+    label: 'Hrvatski',
   },
   {
-  code: 'it',
-  label: 'Italiano',
+    code: 'id',
+    label: 'Bahasa Indonesia',
   },
   {
-  code: 'ja',
-  label: '日本語',
+    code: 'it',
+    label: 'Italiano',
   },
   {
-  code: 'ko',
-  label: '한국어',
+    code: 'ja',
+    label: '日本語',
   },
   {
-  code: 'ms',
-  label: 'Bahasa Malaysia',
+    code: 'ko',
+    label: '한국어',
   },
   {
-  code: 'pt',
-  label: 'Português',
+    code: 'ms',
+    label: 'Bahasa Malaysia',
   },
   {
-  code: 'ro',
-  label: 'Română',
+    code: 'pt',
+    label: 'Português',
+  },
+  {
+    code: 'ro',
+    label: 'Română',
+  },
+  {
+    code: 'sr',
+    label: 'Srpski',
+  },
+  {
+    code: 'sr-SP',
+    label: 'Српски',
   },
   {
     code: 'tr',
     label: 'Türkçe'
   },
   {
-  code: 'zh',
-  label: '简体中文',
-  },
-  {
-  code: 'hr',
-  label: 'Hrvatski',
-  },
-  {
-  code: 'sr',
-  label: 'Srpski',
-  },
-  {
-  code: 'sr-SP',
-  label: 'Српски',
-  },
+    code: 'zh',
+    label: '简体中文',
+  }
 ];

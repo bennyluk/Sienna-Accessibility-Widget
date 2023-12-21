@@ -15,6 +15,10 @@ import ms from "../locales/ms.json";
 import tr from "../locales/tr.json";
 import el from "../locales/el.json";
 import zh from "../locales/zh-Hans.json";
+import hr from "../locales/hr.json";
+import sr from "../locales/sr.json";
+import sr_rs from "../locales/sr_rs.json";
+
 
 export interface ILanguage {
   code: string,
@@ -38,7 +42,10 @@ export const LANGUAGE_DICTIONARY = {
   he: he,
   ro: ro,
   ms: ms,
-  tr: tr
+  tr: tr,
+  hr: hr,
+  sr: sr,
+  'sr-SP': sr_rs,
 };
 
 export const LANGUAGES: ILanguage[] = [
@@ -109,5 +116,17 @@ export const LANGUAGES: ILanguage[] = [
   {
   code: 'zh',
   label: '简体中文',
+  },
+  {
+  code: 'hr',
+  label: 'Hrvatski',
+  },
+  {
+  code: 'sr',
+  label: 'Srpski',
+  },
+  {
+  code: 'sr-SP',
+  label: 'Српски',
   },
 ];

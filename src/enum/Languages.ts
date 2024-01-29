@@ -8,6 +8,7 @@ import ja from "../locales/ja.json";
 import fr from "../locales/fr.json";
 import it from "../locales/it.json";
 import id from "../locales/id.json";
+import pl from "../locales/pl.json";
 import pt from "../locales/pt.json";
 import he from "../locales/he.json";
 import ro from "../locales/ro.json";
@@ -38,6 +39,7 @@ export const LANGUAGE_DICTIONARY = {
   ko: ko,
   zh: zh,
   id: id,
+  pl: pl,
   pt: pt,
   he: he,
   ro: ro,
@@ -104,6 +106,10 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: 'ms',
     label: 'Bahasa Malaysia',
+  },
+  {
+    code: 'pl',
+    label: 'polski',
   },
   {
     code: 'pt',

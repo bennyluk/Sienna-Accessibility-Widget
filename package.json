@@ -1,5 +1,5 @@
 {
-  "name": "sienna",
+  "name": "sienna-accessibility",
   "version": "1.0.0",
   "description": "Sienna: Accessibility Website Widget",
   "main": "./src/entry.ts",
@@ -34,8 +34,5 @@
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "copy-webpack-plugin": "^11.0.0"
   }
 }

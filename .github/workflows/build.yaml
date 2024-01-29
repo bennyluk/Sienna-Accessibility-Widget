@@ -24,3 +24,9 @@ jobs:
 
     - name: Build with Webpack
       run: npm run prod
+
+    - name: Upload dist artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: dist

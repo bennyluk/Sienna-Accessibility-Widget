@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: "development",
-  watch: true,
   entry: {
     sienna: "./src/entry.ts",
   },

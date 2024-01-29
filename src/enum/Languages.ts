@@ -22,31 +22,31 @@ import sr_rs from "../locales/sr_rs.json";
 
 
 export interface ILanguage {
-  code: string,
-  label: string
+  code: string;
+  label: string;
 }
 
 export const LANGUAGE_DICTIONARY = {
-  ar: ar,
-  de: de,
-  en: en,
-  el: el,
-  es: es,
-  fr: fr,
-  hi: hi,
-  it: it,
-  ja: ja,
-  ko: ko,
-  zh: zh,
-  id: id,
-  pl: pl,
-  pt: pt,
-  he: he,
-  ro: ro,
-  ms: ms,
-  tr: tr,
-  hr: hr,
-  sr: sr,
+  ar,
+  de,
+  en,
+  el,
+  es,
+  fr,
+  hi,
+  it,
+  ja,
+  ko,
+  zh,
+  id,
+  pl,
+  pt,
+  he,
+  ro,
+  ms,
+  tr,
+  hr,
+  sr,
   'sr-SP': sr_rs,
 };
 
@@ -134,5 +134,5 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: 'zh',
     label: '简体中文',
-  }
+  },
 ];

@@ -109,7 +109,7 @@ export const LANGUAGES: ILanguage[] = [
   },
   {
     code: 'pl',
-    label: 'polski',
+    label: 'Polski',
   },
   {
     code: 'pt',

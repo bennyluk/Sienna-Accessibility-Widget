@@ -1,13 +1,12 @@
-name: Build Dist
+name: Publish to npm
 
 on:
   push:
     branches:
       - main
-      - dev
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,16 +16,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 14
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build with Webpack
-      run: npm run prod
-
-    - name: Upload dist artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: dist
-        path: dist
+    - name: Publish to npm
+      run: npm publish --access public
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

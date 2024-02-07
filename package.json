@@ -9,7 +9,7 @@
     "test": "tests"
   },
   "scripts": {
-    "dev": "npx webpack",
+    "dev": "npx webpack watch --mode=development",
     "prod": "npx webpack --mode=production"
   },
   "repository": {

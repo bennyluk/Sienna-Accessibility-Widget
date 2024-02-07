@@ -5,12 +5,14 @@ import { renderWidget } from "./views/widget/widget"
 
 export interface ISeinnaSettings {
     lang?: any,
-    position?: any | 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right'
+    position?: any | 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right' | 'center-left' | 'center-right',
+    footer?: any,
+    offset?: any
 }
 
 export const DEFAULT_OPTIONS: ISeinnaSettings = {
     lang: 'en',
-    position: 'bottom-right'
+    position: 'bottom-left'
 }
 
 export default function sienna(args?: ISeinnaSettings) {

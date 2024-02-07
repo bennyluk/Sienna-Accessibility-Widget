@@ -24,6 +24,7 @@ export interface IRenderMenuArgs {
 
 export function renderMenu({
     container,
+    position,
     ...options
 }: IRenderMenuArgs) {
     const $container: HTMLElement = document.createElement("div");
@@ -31,10 +32,12 @@ export function renderMenu({
 
     const $menu: HTMLElement = $container.querySelector(".asw-menu");
 
-    if(options.position === "bottom-right") {
-        $menu.style.right = '20px';
+    // options
+    if(position?.includes("right")) {
+        $menu.style.right = '0px';
         $menu.style.left = 'auto';
     }
+
 
     $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
     $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');

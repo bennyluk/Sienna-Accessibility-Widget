@@ -1,8 +1,14 @@
 import sienna from "./sienna";
 
+function getDataAttribute(attr) {
+    attr = `data-asw-${ attr }`;
+    return document?.querySelector(`[${ attr }]`)?.getAttribute(attr)
+}
+
 function initializeSienna() {
-    let lang = document?.querySelector("[data-asw-lang]")?.getAttribute("data-asw-lang");
-    let position = document?.querySelector("[data-asw-position]")?.getAttribute("data-asw-position");
+    let lang: string = getDataAttribute("lang");
+    let position: string = getDataAttribute("position")
+    let offset: string | number[] = getDataAttribute("offset");
 
     if(!lang) {
         lang = document?.querySelector('html')?.getAttribute('lang')?.replace(/[_-].*/, '');
@@ -11,9 +17,14 @@ function initializeSienna() {
         lang = navigator?.language;
     }
 
+    if(offset) {
+        offset = offset.split(",").map(value => parseInt(value));
+    }
+
     sienna({
         lang,
-        position
+        position,
+        offset
     });
 }
 

@@ -1,9 +1,8 @@
 <style>
     .asw-menu {
         position: fixed;
-        left: 20px;
-        top: 20px;
-        border-radius: 8px;
+        left: 0;
+        top: 0px;
         box-shadow: 0px 0px 20px #00000080;
         opacity: 1;
         transition: .3s;
@@ -13,7 +12,7 @@
         width: 500px;
         line-height: 1;
         font-size: 16px;
-        height: calc(100% - 40px - 75px);
+        height: 100%;
         letter-spacing: 0.015em;
     }
 
@@ -143,7 +142,7 @@
 
     .asw-footer a {
         font-size: 14px !important;
-        text-decoration: underline;
+        text-decoration: none;
         color: #0648ff;
         background: transparent !important;
         font-weight: 700;
@@ -207,8 +206,7 @@
 
     @media only screen and (max-width: 560px) {
         .asw-menu {
-            width: calc(100% - 20px);
-            left: 10px;
+            width: 100%;
         }
     }
 
@@ -217,12 +215,6 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 0.5rem;
         }
-
-        .asw-menu {
-            width: calc(100% - 20px);
-            left: 10px;
-        }
-
     }
 </style>
 
@@ -301,7 +293,7 @@
     </div>
     
     <div class="asw-footer">
-        <a href="https://accessibility-widget.pages.dev">Accessibility Widget by Sienna</a> 
+        <a href="https://accessibility-widget.pages.dev" target="_blank">Accessibility Widget by Sienna ❤️</a>
     </div>
 </div>
 

@@ -7,7 +7,8 @@ import translateMenu from "../menu/translateMenu";
 
 export function renderWidget(options: ISeinnaSettings) {
     let {
-        position
+        position = "bottom-left",
+        offset=[20,20]
     } = options;
 
     const widget: HTMLElement = document.createElement("div");
@@ -15,10 +16,60 @@ export function renderWidget(options: ISeinnaSettings) {
     widget.classList.add("asw-container");
 
     let $btn: HTMLElement = widget.querySelector(".asw-menu-btn");
-    if($btn && position === "bottom-right") {
-        $btn.style.right = '20px';
-        $btn.style.left = 'auto';
+
+    let offsetX = offset?.[0] ?? 20;
+    let offsetY = offset?.[1] ?? 20;
+
+    
+    let buttonStyle = {
+        left: `${offsetX}px`,
+        bottom: `${ offsetY }px`,
     }
+
+    if(position === "bottom-right") {
+        buttonStyle = {
+            right: `${offsetX}px`,
+            left: "auto"
+        }
+    } else if(position === "top-left") {
+        buttonStyle = {
+            top: `${offsetY}px`,
+            bottom: "auto",
+            left: `${offsetX}px`
+        }
+    } else if(position === "center-left") {
+        buttonStyle = {
+            left: `${offsetX}px`,
+            bottom: `calc(50% - (55px / 2))`
+        }
+    } else if(position === "top-right") {
+        buttonStyle = {
+            top: `${offsetY}px`,
+            bottom: "auto",
+            right: `${offsetX}px`,
+            left: "auto"
+        }
+    } else if(position === "center-right") {
+        buttonStyle = {
+            right: `${offsetX}px`,
+            left: "auto",
+            bottom: "calc(50% - (55px / 2))"
+        }
+    } else if(position === "bottom-center") {
+        buttonStyle = {
+            right: `${offsetX}px`,
+            left: "calc(50% - (55px / 2))"
+        }
+    } else if(position === "top-center") {
+        // why in the world would you put it here.
+        buttonStyle = {
+            top: `${offsetY}px`,
+            bottom: "auto",
+            left: "calc(50% - (55px / 2))"
+        }
+    }
+
+    Object.assign($btn.style, buttonStyle);
 
     let menu;
     $btn?.addEventListener("click", (event) => {    

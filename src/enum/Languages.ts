@@ -19,7 +19,7 @@ import zh from "../locales/zh-Hans.json";
 import hr from "../locales/hr.json";
 import sr from "../locales/sr.json";
 import sr_rs from "../locales/sr_rs.json";
-
+import ka from "../locales/ka.json";
 
 export interface ILanguage {
   code: string;
@@ -47,92 +47,97 @@ export const LANGUAGE_DICTIONARY = {
   tr,
   hr,
   sr,
-  'sr-SP': sr_rs,
+  "sr-SP": sr_rs,
+  ka,
 };
 
 export const LANGUAGES: ILanguage[] = [
   {
-    code: 'ar',
-    label: 'العربية',
+    code: "ar",
+    label: "العربية",
   },
   {
-    code: 'de',
-    label: 'Deutsch',
+    code: "de",
+    label: "Deutsch",
   },
   {
-    code: 'el',
-    label: 'Ελληνικά',
+    code: "el",
+    label: "Ελληνικά",
   },
   {
-    code: 'en',
-    label: 'English',
+    code: "en",
+    label: "English",
   },
   {
-    code: 'es',
-    label: 'Español',
+    code: "es",
+    label: "Español",
   },
   {
-    code: 'fr',
-    label: 'Français',
+    code: "fr",
+    label: "Français",
   },
   {
-    code: 'he',
-    label: 'עברית',
+    code: "he",
+    label: "עברית",
   },
   {
-    code: 'hi',
-    label: 'हिन्दी',
+    code: "hi",
+    label: "हिन्दी",
   },
   {
-    code: 'hr',
-    label: 'Hrvatski',
+    code: "hr",
+    label: "Hrvatski",
   },
   {
-    code: 'id',
-    label: 'Bahasa Indonesia',
+    code: "id",
+    label: "Bahasa Indonesia",
   },
   {
-    code: 'it',
-    label: 'Italiano',
+    code: "it",
+    label: "Italiano",
   },
   {
-    code: 'ja',
-    label: '日本語',
+    code: "ja",
+    label: "日本語",
   },
   {
-    code: 'ko',
-    label: '한국어',
+    code: "ko",
+    label: "한국어",
   },
   {
-    code: 'ms',
-    label: 'Bahasa Malaysia',
+    code: "ms",
+    label: "Bahasa Malaysia",
   },
   {
-    code: 'pl',
-    label: 'Polski',
+    code: "pl",
+    label: "Polski",
   },
   {
-    code: 'pt',
-    label: 'Português',
+    code: "pt",
+    label: "Português",
   },
   {
-    code: 'ro',
-    label: 'Română',
+    code: "ro",
+    label: "Română",
   },
   {
-    code: 'sr',
-    label: 'Srpski',
+    code: "sr",
+    label: "Srpski",
   },
   {
-    code: 'sr-SP',
-    label: 'Српски',
+    code: "sr-SP",
+    label: "Српски",
   },
   {
-    code: 'tr',
-    label: 'Türkçe'
+    code: "tr",
+    label: "Türkçe",
   },
   {
-    code: 'zh',
-    label: '简体中文',
+    code: "zh",
+    label: "简体中文",
+  },
+  {
+    code: "ka",
+    label: "ქართული",
   },
 ];

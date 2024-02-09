@@ -20,6 +20,7 @@ import hr from "../locales/hr.json";
 import sr from "../locales/sr.json";
 import sr_rs from "../locales/sr_rs.json";
 import ka from "../locales/ka.json";
+import ru from "../locales/ru.json";
 
 export interface ILanguage {
   code: string;
@@ -49,6 +50,7 @@ export const LANGUAGE_DICTIONARY = {
   sr,
   "sr-SP": sr_rs,
   ka,
+  ru,
 };
 
 export const LANGUAGES: ILanguage[] = [
@@ -139,5 +141,9 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: "ka",
     label: "ქართული",
+  },
+  {
+    code: "ru",
+    label: "Русский",
   },
 ];

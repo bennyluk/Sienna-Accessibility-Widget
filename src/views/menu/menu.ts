@@ -40,7 +40,7 @@ export function renderMenu({
     $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
     $menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
 
-    $menu.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
+    $container.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
         el.addEventListener('click', () => {
             toggle($container, false)
         });

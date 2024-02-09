@@ -32,12 +32,10 @@ export function renderMenu({
 
     const $menu: HTMLElement = $container.querySelector(".asw-menu");
 
-    // options
     if(position?.includes("right")) {
         $menu.style.right = '0px';
         $menu.style.left = 'auto';
     }
-
 
     $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
     $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');

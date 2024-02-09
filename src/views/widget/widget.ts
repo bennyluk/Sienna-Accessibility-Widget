@@ -21,26 +21,32 @@ export function renderWidget(options: ISeinnaSettings) {
     let offsetY = offset?.[1] ?? 20;
 
     
-    let buttonStyle = {
+    let buttonStyle: {
+        left?: string,
+        bottom?: string,
+        right?: string,
+        top?: string
+    } = {
         left: `${offsetX}px`,
         bottom: `${ offsetY }px`,
     }
 
     if(position === "bottom-right") {
         buttonStyle = {
+            ...buttonStyle,
             right: `${offsetX}px`,
             left: "auto"
         }
     } else if(position === "top-left") {
         buttonStyle = {
+            ...buttonStyle,
             top: `${offsetY}px`,
-            bottom: "auto",
-            left: `${offsetX}px`
+            bottom: "auto"
         }
     } else if(position === "center-left") {
         buttonStyle = {
-            left: `${offsetX}px`,
-            bottom: `calc(50% - (55px / 2))`
+            ...buttonStyle,
+            bottom: `calc(50% - (55px / 2) - ${ offset?.[1] ?? 0 }px)`
         }
     } else if(position === "top-right") {
         buttonStyle = {
@@ -53,19 +59,18 @@ export function renderWidget(options: ISeinnaSettings) {
         buttonStyle = {
             right: `${offsetX}px`,
             left: "auto",
-            bottom: "calc(50% - (55px / 2))"
+            bottom: `calc(50% - (55px / 2) - ${ offset?.[1] ?? 0 }px)`
         }
     } else if(position === "bottom-center") {
         buttonStyle = {
-            right: `${offsetX}px`,
-            left: "calc(50% - (55px / 2))"
+            ...buttonStyle,
+            left: `calc(50% - (55px / 2) - ${ offset?.[0] ?? 0 }px)`
         }
     } else if(position === "top-center") {
-        // why in the world would you put it here.
         buttonStyle = {
             top: `${offsetY}px`,
             bottom: "auto",
-            left: "calc(50% - (55px / 2))"
+            left: `calc(50% - (55px / 2) - ${ offset?.[0] ?? 0 }px)`
         }
     }
 

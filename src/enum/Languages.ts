@@ -103,6 +103,10 @@ export const LANGUAGES: ILanguage[] = [
     label: "日本語",
   },
   {
+    code: "ka",
+    label: "ქართული",
+  },
+  {
     code: "ko",
     label: "한국어",
   },
@@ -123,6 +127,10 @@ export const LANGUAGES: ILanguage[] = [
     label: "Română",
   },
   {
+    code: "ru",
+    label: "Русский",
+  },
+  {
     code: "sr",
     label: "Srpski",
   },
@@ -137,13 +145,5 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: "zh",
     label: "简体中文",
-  },
-  {
-    code: "ka",
-    label: "ქართული",
-  },
-  {
-    code: "ru",
-    label: "Русский",
-  },
+  }
 ];

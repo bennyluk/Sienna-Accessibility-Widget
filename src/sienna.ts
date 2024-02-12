@@ -1,5 +1,4 @@
-import { LANGUAGE_DICTIONARY } from "./enum/Languages";
-import { getSavedSettings, getSettings, saveSettings } from "./storage";
+import { getSettings, saveSettings } from "./storage";
 import runAccessibility from "./views/menu/runAccessibility";
 import { renderWidget } from "./views/widget/widget"
 

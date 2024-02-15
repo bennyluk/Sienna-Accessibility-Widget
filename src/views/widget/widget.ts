@@ -18,8 +18,7 @@ export function renderWidget(options: ISeinnaSettings) {
     let $btn: HTMLElement = widget.querySelector(".asw-menu-btn");
 
     let offsetX = offset?.[0] ?? 20;
-    let offsetY = offset?.[1] ?? 20;
-
+    let offsetY = offset?.[1] ?? 25;
     
     let buttonStyle: {
         left?: string,

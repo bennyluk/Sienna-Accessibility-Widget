@@ -19,6 +19,8 @@
     .asw-menu * {
         color: #000 !important;
         font-family: inherit;
+        padding: 0;
+        margin: 0;
     }
 
     .asw-menu-header {
@@ -28,7 +30,7 @@
         padding-left: 18px;
         padding-right: 18px;
         height: 55px;
-        font-weight: 700;
+        font-weight: 700 !important;
         background-color: #0848ca !important;
     }
 
@@ -53,7 +55,7 @@
 
     .asw-menu-header div[role="button"] {
         padding: 5px;
-        background: white;
+        background: white !important;
         cursor: pointer;
         border-radius: 50%;
         transition: opacity .3s ease;
@@ -70,6 +72,8 @@
     .asw-card-title {
         font-size: 14px !important;
         padding: 15px 0;
+        font-weight: 500 !important;
+        opacity: 0.8;
     }
 
     .asw-menu .asw-select {
@@ -81,7 +85,6 @@
         border-radius: 45px !important;
         background: #fff !important;
         border: none !important;
-        border: 1px solid #dedede !important;
         min-height: 45px !important;
         max-height: 45px !important;
         height: 45px !important;
@@ -96,7 +99,7 @@
 
     .asw-btn {
         aspect-ratio: 6 / 5;
-        border-radius: 4px;
+        border-radius: 12px;
         padding: 0 15px;
         display: flex;
         align-items: center;
@@ -106,7 +109,7 @@
         color: #333;
         font-size: 16px !important;
         background: #fff !important;
-        border: 2px solid #dedede;
+        border: 2px solid transparent !important;
         transition: border-color 0.2s ease;
         cursor: pointer;
         word-break: break-word;
@@ -123,7 +126,15 @@
 
     .asw-plus,
     .asw-minus {
-        background-color: #eff1f5;
+        background-color: #eff1f5 !important;
+        border: 2px solid transparent;
+        transition: border .2s ease;
+    }
+
+    
+    .asw-plus:hover,
+    .asw-minus:hover {
+        border-color: #0848ca !important;
     }
 
     .asw-amount {
@@ -152,7 +163,7 @@
 
     .asw-btn:hover,
     .asw-btn.asw-selected {
-        border-color: #0848ca;
+        border-color: #0848ca !important;
     }
 
     .asw-btn.asw-selected:after {
@@ -176,10 +187,9 @@
         left: 0;
         right: 0;
         background: #fff;
-        padding: 18px;
+        padding: 20px;
         text-align: center;
-        color: #333;
-        border-top: 0px solid #eee;
+        border-top: 2px solid #eff1f5;
     }
 
     .asw-footer a {
@@ -187,26 +197,23 @@
         text-decoration: none !important;
         color: #000 !important;
         background: transparent !important;
-        font-weight: 700;
+        font-weight: 700 !important;
     }
 
-    .asw-plus:hover,
-    .asw-minus:hover {
-        opacity: 0.8;
+    .asw-footer a:hover {
+        color: #0848ca!important;
     }
 
     .asw-menu-content {
         overflow: scroll;
         max-height: calc(100% - 80px);
-        color: #333;
         padding: 30px 0 15px;
     }
 
     .asw-adjust-font {
         background: #fff;
-        border: 1px solid #dedede;
         padding: 20px;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .asw-adjust-font .asw-label {
@@ -227,7 +234,7 @@
     }
 
     .asw-adjust-font div[role="button"] {
-        background: #0848ca;
+        background: #eff1f5 !important;
         border-radius: 50%;
         width: 36px;
         height: 36px;

@@ -1,6 +1,6 @@
 {
   "name": "sienna-accessibility",
-  "version": "1.0.0",
+  "version": "1.1",
   "description": "Sienna: Accessibility Website Widget",
   "main": "./src/entry.ts",
   "directories": {
@@ -17,11 +17,11 @@
     "url": "git+https://github.com/bennyluk/Sienna-Accessibility-Widget.git"
   },
   "author": "Benny Luk",
-  "license": "MIT",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/bennyluk/Sienna-Accessibility-Widget/issues"
   },
-  "homepage": "https://github.com/bennyluk/Sienna-Accessibility-Widget#readme",
+  "homepage": "https://accessibility-widget.pages.dev/",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "css-loader": "^6.7.3",

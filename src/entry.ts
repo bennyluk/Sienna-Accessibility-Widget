@@ -43,11 +43,9 @@ const checkReadyState = (): void => {
     }
 };
 
-const load = (): void => {
-    // Use readystatechange for async support
-    document.addEventListener('readystatechange', checkReadyState);
-};
-
 const render: Function = runAccessibility;
 
-export { load, render, reset };
+// Use readystatechange for async support
+document.addEventListener('readystatechange', checkReadyState);
+
+export { render, reset };

@@ -2,14 +2,14 @@
   "name": "sienna-accessibility",
   "version": "1.1.0",
   "description": "Sienna: Accessibility Website Widget",
-  "main": "./src/entry.ts",
+  "main": "./dist/sienna.min.js",
   "directories": {
     "doc": "docs",
     "example": "examples",
     "test": "tests"
   },
   "scripts": {
-    "dev": "npx webpack --mode=development --watch",
+    "dev": "webpack serve --mode=development --hot",
     "prod": "npx webpack --mode=production"
   },
   "repository": {
@@ -27,12 +27,14 @@
     "css-loader": "^6.7.3",
     "html-loader": "^4.2.0",
     "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss-loader": "^7.3.0",
     "raw-loader": "^4.0.2",
     "style-loader": "^3.3.2",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }

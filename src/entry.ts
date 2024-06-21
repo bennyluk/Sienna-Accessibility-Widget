@@ -1,43 +1,56 @@
 import sienna from "./sienna";
+import reset from "./views/menu/reset";
+import runAccessibility from "./views/menu/runAccessibility";
 
-function getDataAttribute(attr) {
-    attr = `data-asw-${ attr }`;
-    return document?.querySelector(`[${ attr }]`)?.getAttribute(attr)
-}
+const getDataAttribute = (attr: any): any => {
+    attr = `data-asw-${attr}`;
+    return document?.querySelector(`[${attr}]`)?.getAttribute(attr);
+};
 
-function initializeSienna() {
+const initialize = (): void => {
     let lang: string = getDataAttribute("lang");
-    let position: string = getDataAttribute("position")
+    let position: string = getDataAttribute("position");
     let offset: string | number[] = getDataAttribute("offset");
 
-    if(!lang) {
-        lang = document?.querySelector('html')?.getAttribute('lang')?.replace(/[_-].*/, '');
+    if (!lang) {
+        lang = document
+            ?.querySelector("html")
+            ?.getAttribute("lang")
+            ?.replace(/[_-].*/, "");
     }
-    if(!lang && typeof navigator !== "undefined" && navigator?.language) {
+    if (!lang && typeof navigator !== "undefined" && navigator?.language) {
         lang = navigator?.language;
     }
 
-    if(offset) {
-        offset = offset.split(",").map(value => parseInt(value));
+    if (typeof offset === "string") {
+        offset = offset.split(",").map((value) => parseInt(value));
     }
 
     sienna({
         lang,
         position,
-        offset
+        offset,
     });
-}
+};
 
-function checkReadyState() {
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+const checkReadyState = (): void => {
+    if (
+        document.readyState === "complete" ||
+        document.readyState === "interactive"
+    ) {
         // Document is ready, call the initialization function
-        initializeSienna();
+        initialize();
 
         // Remove the event listener to ensure it's only executed once
-        document.removeEventListener('readystatechange', checkReadyState);
+        document.removeEventListener("readystatechange", checkReadyState);
     }
-}
+};
 
-// Use readystatechange for async support
-document.addEventListener("readystatechange", checkReadyState);
+const load = (): void => {
+    // Use readystatechange for async support
+    document.addEventListener("readystatechange", checkReadyState);
+};
 
+const render: Function = runAccessibility;
+
+export { load, render, reset };

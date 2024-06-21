@@ -1,12 +1,23 @@
-import { getSettings } from "../../storage"
+import { getSettings, saveState } from "../../storage";
 import adjustFontSize from "../../tools/adjustFontSize";
 import renderFilter from "./renderFilter";
 import renderTools from "./renderTools";
 
-export default function runAccessibility() {
+export interface ISettingsStates {
+    fontSize?: number;
+    contrast?: string;
+    [key: string]: any;
+}
+
+export default function runAccessibility(opts?: ISettingsStates) {
     let { states } = getSettings();
 
-    adjustFontSize(states?.['fontSize'] || 1);
+    if (opts) {
+        Object.assign(states, opts);
+        saveState(states);
+    }
+
+    adjustFontSize(states?.["fontSize"] || 1);
     renderTools();
     renderFilter();
 }

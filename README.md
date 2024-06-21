@@ -13,6 +13,16 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 
 [Install the plugin quickly with just a copy and paste](https://accessibility-widget.pages.dev/#setup)
 
+```html
+<script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Call your exported functions here to test
+        SiennaAccessibility.load();
+    });
+</script>
+```
+
 ## 🚀 Features
 
 ✅ **Multilingual Support**: Supports multiple languages to ensure a seamless user experience for all users.

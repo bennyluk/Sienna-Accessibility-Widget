@@ -10,8 +10,8 @@ export function saveState(payload): ISettings {
         ...settings,
         states: {
             ...settings.states,
-            ...payload
-        }
+            ...payload,
+        },
     };
     saveSettings(newSettings);
     return newSettings;
@@ -20,7 +20,7 @@ export function saveState(payload): ISettings {
 export function saveSettings(newSettings: any): void {
     settings = {
         ...settings,
-        ...newSettings
+        ...newSettings,
     };
     setCookie(COOKIE_KEY, JSON.stringify(settings));
 }
@@ -37,7 +37,7 @@ export function getSettings(cache: boolean = true): ISettings {
         if (savedSettings) {
             settings = JSON.parse(savedSettings);
         }
-        
+
         return settings;
     }
 }

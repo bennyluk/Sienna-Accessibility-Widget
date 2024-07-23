@@ -2,8 +2,6 @@ name: Run webpack
 
 on:
   push:
-    branches:
-      - master
 
 jobs:
   publish:
@@ -16,13 +14,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 21
 
       - name: Install dependencies
         run: npm install
 
       - name: Run webpack
-        run: npx webpack --mode=production
+        run: npm run prod
 
       - name: Auto commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

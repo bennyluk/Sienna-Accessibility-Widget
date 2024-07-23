@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  publish:
+  run-webpack:
     runs-on: ubuntu-latest
 
     steps:

@@ -1,6 +1,6 @@
 # 👩‍🦽 Sienna: Accessibility Widget for Websites
 
-![Banner Image](banner.png)
+![Banner Image](images/banner.png)
 
 [![GitHub license](https://img.shields.io/github/license/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/bennyluk/Sienna-Accessibility-Widget)](https://github.com/bennyluk/Sienna-Accessibility-Widget/releases)

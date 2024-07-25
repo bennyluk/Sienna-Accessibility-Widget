@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Run webpack
-        run: npm run prod && cp ./dist/sienna.min.js ./sienna.min.js
+        run: npm run prod && cp ./dist/sienna.min.js ./build/js/sienna.min.js
 
       - name: Auto commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

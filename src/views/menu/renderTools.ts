@@ -8,6 +8,7 @@ import highlightLinks from "../../tools/highlightLinks";
 import adjustLetterSpacing from "../../tools/adjustLetterSpacing";
 import adjustLineHeight from "../../tools/adjustLineHeight";
 import adjustFontWeight from "../../tools/adjustFontWeight";
+import addBionicReading from "../../tools/bionicReading";
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -18,6 +19,8 @@ export default function renderTools() {
     adjustLetterSpacing(states['letter-spacing']);
     adjustLineHeight(states['line-height']);
     adjustFontWeight(states['font-weight']);
+
+    addBionicReading(states['bionic-reading']);
 
     readableFont(states['readable-font']);
 

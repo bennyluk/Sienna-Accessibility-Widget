@@ -9,6 +9,7 @@ import adjustLetterSpacing from "../../tools/adjustLetterSpacing";
 import adjustLineHeight from "../../tools/adjustLineHeight";
 import adjustFontWeight from "../../tools/adjustFontWeight";
 import addBionicReading from "../../tools/bionicReading";
+import screenReader from "../../tools/screenReader";
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -27,4 +28,6 @@ export default function renderTools() {
     readingGuide(states['readable-guide']);
     stopAnimations(states['stop-animations']);
     bigCursor(states['big-cursor']);
+
+    screenReader(states['screen-reader']);
 }

@@ -27,10 +27,15 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 
 ✅ **Reading Guide, Stop Animations, and Big Cursor**: Helpful tools like a reading guide, the ability to stop animations, and a big cursor to make browsing your website easier for users with visual impairments.
 
+✅ **Screen Reader**: Clicking or selecting text will read it out loud, making it easier for users with visual impairments to navigate your website.
+
+## 🐛 Known Issues
+
+- The screen reader is disabled in Google Chrome as it would only read the selected text for 15 seconds, then stop. This is a known issue with Chrome and the `speechSynthesis` API.
+
 ## 📌 TODO
 
 - Accessibility Profiles
-- Screen Reader
 - Voice Navigation
 - Position of Button
 - Inject Icon in code

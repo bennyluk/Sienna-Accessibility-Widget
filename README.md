@@ -21,6 +21,8 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 
 ✅ **Adjustable Font Size and Highlighting Text**: Users can easily adjust the font size and highlight text to their liking, making it easier to read content.
 
+✅ **Bionic Reading**: Allows users to read content faster and more efficiently by highlighting parts of the words.
+
 ✅ **Color Adjustments, Contrast, Saturation, and Monochrome**: Allows users to customize the color scheme of your website, making it easier for them to read and navigate.
 
 ✅ **Reading Guide, Stop Animations, and Big Cursor**: Helpful tools like a reading guide, the ability to stop animations, and a big cursor to make browsing your website easier for users with visual impairments.

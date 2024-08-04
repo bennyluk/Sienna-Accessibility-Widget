@@ -2,6 +2,7 @@ import bigCursorIcon from "../icons/bigCursorIcon.svg"
 import stopAnimationsIcon from "../icons/stopAnimationsIcon.svg"
 import readingGuideIcon from "../icons/readingGuideIcon.svg"
 import screenReaderIcon from "../icons/screenReaderIcon.svg"
+import muteAudioIcon from "../icons/muteAudioIcon.svg"
 
 /**
  * Check if the device is a touch device
@@ -34,6 +35,11 @@ export default [
         key: 'big-cursor',
         icon: bigCursorIcon,
         enabled: !isTouchDevice()
+    },
+    {
+        label: 'Mute Audio',
+        key: 'mute-audio',
+        icon: muteAudioIcon
     },
     {
         label: 'Stop Animations',

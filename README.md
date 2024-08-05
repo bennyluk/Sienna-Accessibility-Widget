@@ -43,6 +43,16 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 - Inject Icon in code
 - Support More Languages
 
+## 📝 How to Use
+
+Use the `sienna.min.js` file in the `dist` folder. You can include it in your HTML file like this:
+```html
+<script defer src="/dist/sienna.min.js"></script>
+```
+
+It is recommended to include the script at the end of the body tag to ensure that the DOM is fully loaded before the script is executed.
+Also, using the `defer` attribute ensures that the script is executed after the DOM is parsed and does not block the rendering of the page.
+
 ## 🤝 Contributing
 We welcome contributions from anyone who is interested in improving this. If you would like to contribute, please fork the repository and submit a pull request. ❤️
 

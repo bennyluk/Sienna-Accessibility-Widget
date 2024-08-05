@@ -25,9 +25,11 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 
 ✅ **Color Adjustments, Contrast, Saturation, and Monochrome**: Allows users to customize the color scheme of your website, making it easier for them to read and navigate.
 
-✅ **Reading Guide, Stop Animations, and Big Cursor**: Helpful tools like a reading guide, the ability to stop animations, and a big cursor to make browsing your website easier for users with visual impairments.
+✅ **Reading Guide, Stop Animations, Hiding Images, and Big Cursor**: Helpful tools like a reading guide, the ability to stop animations, and a big cursor to make browsing your website easier for users with visual impairments.
 
 ✅ **Screen Reader**: Clicking or selecting text will read it out loud, making it easier for users with visual impairments to navigate your website.
+
+✅ **Muting Audio**: Users can easily mute audio and video elements on your website, making it easier for them to focus on the content.
 
 ## 🐛 Known Issues
 

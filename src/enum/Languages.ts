@@ -17,6 +17,7 @@ import it from "../locales/it.json";
 import ja from "../locales/ja.json";
 import ka from "../locales/ka.json";
 import ko from "../locales/ko.json";
+import lb from "../locales/lb.json";
 import ms from "../locales/ms.json";
 import nl from "../locales/nl.json";
 import no from "../locales/no.json";
@@ -58,6 +59,7 @@ export const LANGUAGE_DICTIONARY = {
   ja,
   ka,
   ko,
+  lb,
   ms,
   nl,
   no,
@@ -151,6 +153,10 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: "ko",
     label: "한국어 (Korean)",
+  },
+  {
+    code: "lb",
+    label: "Lëtzebuergesch (Luxembourgish)",
   },
   {
     code: "ms",

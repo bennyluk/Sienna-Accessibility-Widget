@@ -11,6 +11,7 @@ import adjustFontWeight from "../../tools/adjustFontWeight";
 import addBionicReading from "../../tools/bionicReading";
 import screenReader from "../../tools/screenReader";
 import muteAudio from "../../tools/muteAudio";
+import disableImages from "../../tools/disableImages";
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -25,6 +26,8 @@ export default function renderTools() {
     addBionicReading(states['bionic-reading']);
 
     readableFont(states['readable-font']);
+
+    disableImages(states['disable-images']);
 
     readingGuide(states['readable-guide']);
     stopAnimations(states['stop-animations']);

@@ -5,8 +5,14 @@ import letterSpacingIcon from "../../icons/letterSpacingIcon.svg"
 import dyslexiaFontIcon from "../../icons/dyslexiaFontIcon.svg"
 import highlightLinksIcon from "../../icons/highlightLinksIcon.svg"
 import bionicReadingIcon from "../../icons/bionicReadingIcon.svg"
+import imageIcon from "../../icons/imageIcon.svg"
 
 export default [
+    {
+        label: 'Hide Images',
+        key: 'disable-images',
+        icon: imageIcon
+    },
     {
         label: 'Bionic Reading',
         key: 'bionic-reading',

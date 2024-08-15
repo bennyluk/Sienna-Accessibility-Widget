@@ -25,5 +25,8 @@
   "Font Weight": "Вес шрифта",
   "Dyslexia Font": "Шрифт Дислексия",
   "Language": "Язык",
-  "Open Accessibility Menu": "Открыть меню специальных возможностей"
+  "Open Accessibility Menu": "Открыть меню специальных возможностей",
+  "Mute Audio": "Отключить звук",
+  "Screen Reader": "Экранный диктор",
+  "Hide Images": "Скрыть изображения"
 }

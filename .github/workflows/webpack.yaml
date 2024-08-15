@@ -1,0 +1,32 @@
+name: Run webpack
+
+on:
+  push:
+
+jobs:
+  run-webpack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run webpack
+        run: npm run prod && cp ./dist/sienna.min.js ./build/sienna.min.js
+
+      - name: Auto commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ steps.branch-name.outputs.current_branch }}
+          commit_message: "build: Run webpack [skip actions]"
+          commit_user_name: webfashionist
+          commit_user_email: info@webfashion.in
+          commit_author: webfashionist <info@webfashion.in>

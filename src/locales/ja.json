@@ -25,5 +25,8 @@
     "Font Weight": "フォントの太さ",
     "Dyslexia Font": "ディスレクシア用フォント",
     "Language": "言語",
-    "Open Accessibility Menu": "アクセシビリティメニューを開く"
+    "Open Accessibility Menu": "アクセシビリティメニューを開く",
+    "Mute Audio": "音声を消す",
+    "Screen Reader": "スクリーンリーダー",
+    "Hide Images": "画像を非表示"
 }

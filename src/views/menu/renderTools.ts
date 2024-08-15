@@ -8,6 +8,10 @@ import highlightLinks from "../../tools/highlightLinks";
 import adjustLetterSpacing from "../../tools/adjustLetterSpacing";
 import adjustLineHeight from "../../tools/adjustLineHeight";
 import adjustFontWeight from "../../tools/adjustFontWeight";
+import addBionicReading from "../../tools/bionicReading";
+import screenReader from "../../tools/screenReader";
+import muteAudio from "../../tools/muteAudio";
+import disableImages from "../../tools/disableImages";
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -19,9 +23,16 @@ export default function renderTools() {
     adjustLineHeight(states['line-height']);
     adjustFontWeight(states['font-weight']);
 
+    addBionicReading(states['bionic-reading']);
+
     readableFont(states['readable-font']);
+
+    disableImages(states['disable-images']);
 
     readingGuide(states['readable-guide']);
     stopAnimations(states['stop-animations']);
+    muteAudio(states['mute-audio']);
     bigCursor(states['big-cursor']);
+
+    screenReader(states['screen-reader']);
 }

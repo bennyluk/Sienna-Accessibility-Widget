@@ -1,0 +1,33 @@
+name: Accessibility
+on: push
+
+jobs:
+  accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, redis, memcached, openssl
+          tools: composer:2.5.8
+          coverage: none
+
+      - name : Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Serve Files
+        run: nohup php -S localhost:8080 -t examples/ &
+
+      - name: Run pa11y
+        run: |
+          npm install -g pa11y
+          pa11y http://localhost:8080/overlay.html

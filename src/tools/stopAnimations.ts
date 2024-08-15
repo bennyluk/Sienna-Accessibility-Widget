@@ -17,5 +17,19 @@ export default function stopAnimations(enable=false) {
     injectToolCSS({
         ...stopAnimationsConfig,
         enable
-    })
+    });
+
+    document.querySelectorAll('video').forEach((video: HTMLVideoElement) => {
+        if (!enable) {
+            if (video.classList.contains('asw-stop-animations')) {
+                video.classList.remove('asw-stop-animations');
+                video.play().catch(() => {});
+            }
+            return;
+        }
+        if (!video.paused && !video.ended) {
+            video.classList.add('asw-stop-animations');
+            video.pause();
+        }
+    });
 }

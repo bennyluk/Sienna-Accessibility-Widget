@@ -1,357 +1,365 @@
 <style>
+  .asw-menu {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    box-shadow: 0px 0px 20px #00000080;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 500000;
+    overflow: hidden;
+    background: #eff1f5;
+    width: 500px;
+    line-height: 1;
+    font-size: 16px;
+    height: 100%;
+    letter-spacing: 0.015em;
+  }
+
+  .asw-menu * {
+    color: #000 !important;
+    font-family: inherit;
+    padding: 0;
+    margin: 0;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+  }
+
+  .asw-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 55px;
+    font-weight: 700 !important;
+    background-color: #915ff2 !important;
+  }
+
+  .asw-menu-title {
+    font-size: 16px !important;
+    color: #fff !important;
+  }
+
+  .asw-menu-header svg {
+    fill: #915ff2 !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+  }
+
+  .asw-menu-header > div {
+    display: flex;
+  }
+
+  .asw-menu-header div[role="button"] {
+    padding: 5px;
+    background: white !important;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+  }
+
+  .asw-menu-header div[role="button"]:hover {
+    opacity: 0.8;
+  }
+
+  .asw-card {
+    margin: 0 15px 20px;
+  }
+
+  .asw-card-title {
+    font-size: 14px !important;
+    padding: 15px 0;
+    font-weight: 600 !important;
+    opacity: 0.8;
+  }
+
+  .asw-menu .asw-select {
+    width: 100% !important;
+    padding: 0px 15px !important;
+    font-size: 16px !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    border-radius: 45px !important;
+    background: #fff !important;
+    border: none !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    height: 45px !important;
+    color: inherit !important;
+  }
+
+  .asw-items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .asw-btn {
+    aspect-ratio: 6 / 5;
+    border-radius: 12px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #333;
+    font-size: 16px !important;
+    background: #fff !important;
+    border: 2px solid transparent !important;
+    transition: border-color 0.2s ease;
+    cursor: pointer;
+    word-break: break-word;
+    gap: 10px;
+    position: relative;
+  }
+
+  .asw-btn .asw-translate,
+  .asw-adjust-font .asw-label div {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+
+  .asw-plus,
+  .asw-minus {
+    background-color: #eff1f5 !important;
+    border: 2px solid transparent;
+    transition: border 0.2s ease;
+  }
+
+  .asw-plus:hover,
+  .asw-minus:hover {
+    border-color: #915ff2 !important;
+  }
+
+  .asw-amount {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+
+  .asw-adjust-font svg {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+  }
+
+  .asw-btn svg {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+  }
+
+  .asw-btn:hover,
+  .asw-btn.asw-selected {
+    border-color: #915ff2 !important;
+  }
+
+  .asw-btn.asw-selected svg,
+  .asw-btn.asw-selected span {
+    fill: #915ff2 !important;
+    color: #915ff2 !important;
+  }
+
+  .asw-btn.asw-selected:after {
+    content: "✓";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #915ff2 !important;
+    color: #fff;
+    padding: 6px;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    line-height: 6px;
+  }
+
+  .asw-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #eff1f5;
+  }
+
+  .asw-footer a {
+    font-size: 16px !important;
+    text-decoration: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    font-weight: 600 !important;
+  }
+
+  .asw-footer a:hover,
+  .asw-footer a:hover span {
+    color: #915ff2 !important;
+  }
+
+  .asw-menu-content {
+    overflow: scroll;
+    max-height: calc(100% - 80px);
+    padding: 30px 0 15px;
+  }
+
+  .asw-adjust-font {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .asw-adjust-font .asw-label {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .asw-adjust-font > div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    font-size: 15px;
+  }
+
+  .asw-adjust-font .asw-label div {
+    font-size: 15px !important;
+  }
+
+  .asw-adjust-font div[role="button"] {
+    background: #eff1f5 !important;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .asw-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+  }
+
+  @media only screen and (max-width: 560px) {
     .asw-menu {
-        position: fixed;
-        left: 0;
-        top: 0px;
-        box-shadow: 0px 0px 20px #00000080;
-        opacity: 1;
-        transition: .3s;
-        z-index: 500000;
-        overflow: hidden;
-        background: #eff1f5;
-        width: 500px;
-        line-height: 1;
-        font-size: 16px;
-        height: 100%;
-        letter-spacing: 0.015em;
+      width: 100%;
     }
+  }
 
-    .asw-menu * {
-        color: #000 !important;
-        font-family: inherit;
-        padding: 0;
-        margin: 0;
-        line-height: 1 !important;
-        letter-spacing: normal !important;
-    }
-
-    .asw-menu-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-left: 18px;
-        padding-right: 18px;
-        height: 55px;
-        font-weight: 700 !important;
-        background-color: #0848ca !important;
-    }
-
-    .asw-menu-title {
-        font-size: 16px !important;
-        color: #fff !important;
-    }
-    
-    .asw-menu-header svg {
-        fill: #0848ca !important;
-        width: 24px !important;
-        height: 24px !important;
-        min-width: 24px !important;
-        min-height: 24px !important;
-        max-width: 24px !important;
-        max-height: 24px !important;
-    }
-
-    .asw-menu-header > div {
-        display: flex;
-    }
-
-    .asw-menu-header div[role="button"] {
-        padding: 5px;
-        background: white !important;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: opacity .3s ease;
-    }
-
-    .asw-menu-header div[role="button"]:hover {
-        opacity: 0.8;
-    }
-
-    .asw-card {
-        margin: 0 15px 20px;
-    }
-
-    .asw-card-title {
-        font-size: 14px !important;
-        padding: 15px 0;
-        font-weight: 600 !important;
-        opacity: 0.8;
-    }
-
-    .asw-menu .asw-select {
-        width: 100% !important;
-        padding: 0px 15px!important;
-        font-size: 16px !important;
-        font-family: inherit !important;
-        font-weight: 600 !important;
-        border-radius: 45px !important;
-        background: #fff !important;
-        border: none !important;
-        min-height: 45px !important;
-        max-height: 45px !important;
-        height: 45px !important;
-        color: inherit !important;
-    }
-
+  @media only screen and (max-width: 420px) {
     .asw-items {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
     }
-
-    .asw-btn {
-        aspect-ratio: 6 / 5;
-        border-radius: 12px;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-        color: #333;
-        font-size: 16px !important;
-        background: #fff !important;
-        border: 2px solid transparent !important;
-        transition: border-color 0.2s ease;
-        cursor: pointer;
-        word-break: break-word;
-        gap: 10px;
-        position: relative;
-    }
-
-    .asw-btn .asw-translate,
-    .asw-adjust-font .asw-label div {
-        font-size: 14px !important;
-        font-weight: 600 !important;
-    }
-
-    .asw-plus,
-    .asw-minus {
-        background-color: #eff1f5 !important;
-        border: 2px solid transparent;
-        transition: border .2s ease;
-    }
-
-    
-    .asw-plus:hover,
-    .asw-minus:hover {
-        border-color: #0848ca !important;
-    }
-
-    .asw-amount {
-        font-size: 18px !important;
-        font-weight: 600 !important;
-    }
-    
-    .asw-adjust-font svg{
-        width: 24px !important;
-        height: 24px !important;
-        min-width: 24px !important;
-        min-height: 24px !important;
-        max-width: 24px !important;
-        max-height: 24px !important;
-    }
-
-    .asw-btn svg {
-        width: 34px !important;
-        height: 34px !important;
-        min-width: 34px !important;
-        min-height: 34px !important;
-        max-width: 34px !important;
-        max-height: 34px !important;
-    }
-
-    .asw-btn:hover,
-    .asw-btn.asw-selected {
-        border-color: #0848ca !important;
-    }
-
-    .asw-btn.asw-selected svg,
-    .asw-btn.asw-selected span {
-        fill: #0848ca !important;
-        color: #0848ca !important;
-    }
-
-    .asw-btn.asw-selected:after {
-        content: "✓";
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: #0848ca!important;
-        color: #fff;
-        padding: 6px;
-        font-size: 10px;
-        width: 18px;
-        height: 18px;
-        border-radius: 100%;
-        line-height: 6px;
-    }
-
-    .asw-footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: #fff;
-        padding: 20px;
-        text-align: center;
-        border-top: 2px solid #eff1f5;
-    }
-
-    .asw-footer a {
-        font-size: 16px !important;
-        text-decoration: none !important;
-        color: #000 !important;
-        background: transparent !important;
-        font-weight: 600 !important;
-    }
-
-    .asw-footer a:hover,
-    .asw-footer a:hover span {
-        color: #0848ca!important;
-    }
-
-    .asw-menu-content {
-        overflow: scroll;
-        max-height: calc(100% - 80px);
-        padding: 30px 0 15px;
-    }
-
-    .asw-adjust-font {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .asw-adjust-font .asw-label {
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    .asw-adjust-font > div {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        align-items: center;
-        font-size: 15px;
-    }
-
-    .asw-adjust-font .asw-label div {
-        font-size: 15px !important;
-    }
-
-    .asw-adjust-font div[role="button"] {
-        background: #eff1f5 !important;
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-    .asw-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10000;
-    }
-
-    @media only screen and (max-width: 560px) {
-        .asw-menu {
-            width: 100%;
-        }
-    }
-
-    @media only screen and (max-width: 420px) {
-        .asw-items {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.5rem;
-        }
-    }
+  }
 </style>
 
 <div class="asw-menu">
-    <div class="asw-menu-header">
-        <div class="asw-menu-title asw-translate">
-            Accessibility Menu
-        </div>
-        <div style="gap:15px;">
-            <div role="button" class="asw-menu-reset"  title="Reset settings">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 4c2.1 0 4.1.8 5.6 2.3 3.1 3.1 3.1 8.2 0 11.3a7.78 7.78 0 0 1-6.7 2.3l.5-2c1.7.2 3.5-.4 4.8-1.7a6.1 6.1 0 0 0 0-8.5A6.07 6.07 0 0 0 12 6v4.6l-5-5 5-5V4M6.3 17.6C3.7 15 3.3 11 5.1 7.9l1.5 1.5c-1.1 2.2-.7 5 1.2 6.8.5.5 1.1.9 1.8 1.2l-.6 2a8 8 0 0 1-2.7-1.8Z"/>
-                </svg>
-            </div>
-            <div role="button" class="asw-menu-close" title="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/>
-                </svg>
-            </div>
-        </div>
+  <div class="asw-menu-header">
+    <div class="asw-menu-title asw-translate">Accessibility Menu</div>
+    <div style="gap: 15px">
+      <div role="button" class="asw-menu-reset" title="Reset settings">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 4c2.1 0 4.1.8 5.6 2.3 3.1 3.1 3.1 8.2 0 11.3a7.78 7.78 0 0 1-6.7 2.3l.5-2c1.7.2 3.5-.4 4.8-1.7a6.1 6.1 0 0 0 0-8.5A6.07 6.07 0 0 0 12 6v4.6l-5-5 5-5V4M6.3 17.6C3.7 15 3.3 11 5.1 7.9l1.5 1.5c-1.1 2.2-.7 5 1.2 6.8.5.5 1.1.9 1.8 1.2l-.6 2a8 8 0 0 1-2.7-1.8Z"
+          />
+        </svg>
+      </div>
+      <div role="button" class="asw-menu-close" title="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"
+          />
+        </svg>
+      </div>
     </div>
-    <div class="asw-menu-content">
-        <div class="asw-card">
-            <select id="asw-language" title="Language" class="asw-select"></select>
-        </div>
-
-        <div class="asw-card">
-            <div class="asw-card-title">
-                Content Adjustments
-            </div>
-            <div class="asw-adjust-font">
-                <div class="asw-label" style="margin:0;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="margin-right:15px;">
-                        <path d="M2 4v3h5v12h3V7h5V4H2m19 5h-9v3h3v7h3v-7h3V9Z"/>
-                    </svg>
-                    <div class="asw-translate">
-                        Adjust Font Size
-                    </div>
-                </div>
-                <div>
-                    <div class="asw-minus" data-key="font-size" role="button" aria-pressed="false" title="Decrease Font Size" tabindex="0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 13H5v-2h14v2Z"/>
-                        </svg>
-                    </div>
-                    <div class="asw-amount" >
-                        100%
-                    </div>
-                    <div class="asw-plus" data-key="font-size" role="button" aria-pressed="false" title="Increase Font Size" tabindex="0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="asw-items content">
-            </div>
-        </div>
-
-        <div class="asw-card">
-            <div class="asw-card-title">
-                Color Adjustments
-            </div>
-            <div class="asw-items contrast">
-            </div>
-        </div>
-
-        <div class="asw-card">
-            <div class="asw-card-title ">
-                Tools
-            </div>
-            <div class="asw-items tools">
-            </div>
-        </div>
+  </div>
+  <div class="asw-menu-content">
+    <div class="asw-card">
+      <select id="asw-language" title="Language" class="asw-select"></select>
     </div>
-    
-    <div class="asw-footer">
-        <a href="https://accessibility-widget.pages.dev" target="_blank">Web Accessibility By <span style="font-weight:700;color:inherit;">Sienna</span> ❤️</a>
+
+    <div class="asw-card">
+      <div class="asw-card-title">Content Adjustments</div>
+      <div class="asw-adjust-font">
+        <div class="asw-label" style="margin: 0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            style="margin-right: 15px"
+          >
+            <path d="M2 4v3h5v12h3V7h5V4H2m19 5h-9v3h3v7h3v-7h3V9Z" />
+          </svg>
+          <div class="asw-translate">Adjust Font Size</div>
+        </div>
+        <div>
+          <div
+            class="asw-minus"
+            data-key="font-size"
+            role="button"
+            aria-pressed="false"
+            title="Decrease Font Size"
+            tabindex="0"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M19 13H5v-2h14v2Z" />
+            </svg>
+          </div>
+          <div class="asw-amount">100%</div>
+          <div
+            class="asw-plus"
+            data-key="font-size"
+            role="button"
+            aria-pressed="false"
+            title="Increase Font Size"
+            tabindex="0"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="asw-items content"></div>
     </div>
+
+    <div class="asw-card">
+      <div class="asw-card-title">Color Adjustments</div>
+      <div class="asw-items contrast"></div>
+    </div>
+
+    <div class="asw-card">
+      <div class="asw-card-title">Tools</div>
+      <div class="asw-items tools"></div>
+    </div>
+  </div>
+
+  <div class="asw-footer">
+    <a href="https://lassomd.com" target="_blank"
+      >Web Accessibility By
+      <span style="font-weight: 700; color: inherit">Lasso MD</span></a
+    >
+  </div>
 </div>
 
-<div class="asw-overlay">
-</div>
+<div class="asw-overlay"></div>

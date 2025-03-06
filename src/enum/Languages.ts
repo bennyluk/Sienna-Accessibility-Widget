@@ -1,6 +1,7 @@
 import ar from "../locales/ar.json";
 import bg from "../locales/bg.json";
 import bn from "../locales/bn.json";
+import ca from "../locales/ca.json";
 import cs from "../locales/cs.json";
 import de from "../locales/de.json";
 import el from "../locales/el.json";
@@ -42,6 +43,7 @@ export const LANGUAGE_DICTIONARY = {
   ar,
   bg,
   bn,
+  ca,
   cs,
   de,
   el,
@@ -87,6 +89,10 @@ export const LANGUAGES: ILanguage[] = [
   {
     code: "bn",
     label: "বাংলা (Bengali)",
+  },
+  {
+    code: "ca",
+    label: "Català (Catalan)",
   },
   {
     code: "cs",

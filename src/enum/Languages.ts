@@ -1,7 +1,9 @@
 import ar from "../locales/ar.json";
 import bg from "../locales/bg.json";
 import bn from "../locales/bn.json";
+import ca from "../locales/ca.json";
 import cs from "../locales/cs.json";
+import da from "../locales/da.json";
 import de from "../locales/de.json";
 import el from "../locales/el.json";
 import en from "../locales/en.json";
@@ -42,7 +44,9 @@ export const LANGUAGE_DICTIONARY = {
   ar,
   bg,
   bn,
+  ca,
   cs,
+  da,
   de,
   el,
   en,
@@ -89,12 +93,20 @@ export const LANGUAGES: ILanguage[] = [
     label: "বাংলা (Bengali)",
   },
   {
+    code: "ca",
+    label: "Català (Catalan)",
+  },
+  {
     code: "cs",
     label: "čeština (Czech)",
   },
   {
     code: "de",
     label: "Deutsch (German)",
+  },
+  {
+    code: "da",
+    label: "Danish (Denmark)",
   },
   {
     code: "el",

@@ -8,7 +8,6 @@
       "resolveJsonModule": true,
       "allowSyntheticDefaultImports": true,
       "types": [
-        "node",
         "./svg.d.ts",
         "./css.d.ts"
       ]

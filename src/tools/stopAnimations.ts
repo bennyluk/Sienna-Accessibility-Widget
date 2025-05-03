@@ -17,5 +17,5 @@ export default function stopAnimations(enable=false) {
     injectToolCSS({
         ...stopAnimationsConfig,
         enable
-    })
+    });
 }

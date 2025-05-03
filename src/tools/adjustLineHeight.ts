@@ -1,11 +1,11 @@
 import { injectToolCSS } from "../utils/cssGenerator";
-import { ALL_SELECTOR } from "../enum/Selectors";
+import { ALL_ELEMENT_SELECTORS } from "../enum/Selectors";
 import IToolConfig from "../types/IToolConfig";
 
 export const adjustLineHeightConfig: IToolConfig = {
     id: "line-height",
     selector: `html`,
-    childrenSelector: ALL_SELECTOR,
+    childrenSelector: ALL_ELEMENT_SELECTORS,
     styles: {
         'line-height': '3'
     }

@@ -1,38 +1,24 @@
 {
   "name": "sienna-accessibility",
-  "version": "1.1",
+  "version": "2.0.0",
   "description": "Sienna: Accessibility Website Widget",
   "main": "./src/entry.ts",
-  "directories": {
-    "doc": "docs",
-    "example": "examples",
-    "test": "tests"
-  },
   "scripts": {
-    "dev": "npx webpack --mode=development --watch",
-    "prod": "npx webpack --mode=production"
+    "watch": "node esbuild.config.js --watch",
+    "build": "node esbuild.config.js --minify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bennyluk/Sienna-Accessibility-Widget.git"
   },
   "author": "Benny Luk",
-  "license": "GNU",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bennyluk/Sienna-Accessibility-Widget/issues"
   },
   "homepage": "https://accessibility-widget.pages.dev/",
   "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "css-loader": "^6.7.3",
-    "html-loader": "^4.2.0",
-    "html-minifier": "^4.0.0",
-    "mini-css-extract-plugin": "^2.7.5",
-    "postcss-loader": "^7.3.0",
-    "raw-loader": "^4.0.2",
-    "style-loader": "^3.3.2",
-    "ts-loader": "^9.4.2",
-    "typescript": "^5.0.4",
-    "webpack-cli": "^5.1.4"
+    "esbuild": "0.25.1",
+    "html-minifier": "^4.0.0"
   }
 }

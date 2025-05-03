@@ -1,0 +1,11 @@
+.asw-rg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    pointer-events: none;
+    background-color: rgba(0,0,0,.8);
+    z-index: 1000000;
+}

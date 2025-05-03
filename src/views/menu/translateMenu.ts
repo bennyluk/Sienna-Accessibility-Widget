@@ -1,10 +1,9 @@
 import { t } from "../../i18n";
 
 function getTranslatedLabel(el, defaultValue) {
-    let label = el.getAttribute("data-translate");
+    let label = el.getAttribute("data-translate") || defaultValue;
 
-    if(!label && defaultValue) {
-        label = defaultValue;
+    if (!el.hasAttribute("data-translate") && defaultValue) {
         el.setAttribute("data-translate", label);
     }
 
@@ -17,6 +16,6 @@ export default function translateMenu(menu) {
     })
 
     menu.querySelectorAll("[title]").forEach(el => {
-        el.setAttribute("title", getTranslatedLabel(el, el.getAttribute("title")))
+        el.setAttribute("title", getTranslatedLabel(el, el.getAttribute("title")));
     });
 }

@@ -9,12 +9,7 @@ export const readableFontConfig: IToolConfig = {
     styles: {
         'font-family': 'OpenDyslexic3,Comic Sans MS,Arial,Helvetica,sans-serif'
     },
-    css: `
-        @font-face {
-            font-family: OpenDyslexic3;
-            src: url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.woff") format("woff"), url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.ttf") format("truetype");
-        }
-    `
+    css: `@font-face {font-family: OpenDyslexic3;src: url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.woff") format("woff"), url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.ttf") format("truetype");}`
 }
 
 export default function readableFont(enable=false) {

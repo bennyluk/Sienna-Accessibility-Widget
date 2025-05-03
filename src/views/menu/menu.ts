@@ -16,6 +16,8 @@ import translateMenu from "./translateMenu";
 
 import { ILanguage, LANGUAGES } from "../../enum/Languages";
 
+import css from "./menu.css";
+
 export interface IRenderMenuArgs {
     container: HTMLElement,
     position?: string,
@@ -28,8 +30,8 @@ export function renderMenu({
     ...options
 }: IRenderMenuArgs) {
     const $container: HTMLElement = document.createElement("div");
-    $container.innerHTML = template;
-
+    $container.innerHTML = `<style>${css}</style>` + template;
+    
     const $menu: HTMLElement = $container.querySelector(".asw-menu");
 
     if(position?.includes("right")) {
@@ -41,11 +43,9 @@ export function renderMenu({
     $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
     $menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
 
-    $container.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el: HTMLElement) => {
-        el.addEventListener('click', () => {
-            toggle($container, false)
-        });
-    })
+    $container.querySelectorAll('.asw-menu-close, .asw-overlay').forEach((el) =>
+        el.addEventListener('click', () => toggle($container, false))
+    );
 
     $menu.querySelectorAll(".asw-adjust-font div[role='button']").forEach((el: HTMLElement) => {
         el.addEventListener("click", () => {
@@ -100,9 +100,9 @@ export function renderMenu({
         });
     });
 
-    $menu.querySelector('.asw-menu-reset')?.addEventListener('click', () => {
-        reset();
-    });
+    $container.querySelectorAll('.asw-menu-reset').forEach((el) =>
+        el.addEventListener('click', reset)
+    );
 
     
     let settings = getSettings();

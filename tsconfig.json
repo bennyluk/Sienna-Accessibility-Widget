@@ -9,11 +9,11 @@
       "allowSyntheticDefaultImports": true,
       "types": [
         "node",
-        "./svg.d.ts"
+        "./svg.d.ts",
+        "./css.d.ts"
       ]
     },
     "include": [
       "./src/**/*.ts"
     ]
 }
-  

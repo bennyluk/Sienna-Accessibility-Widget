@@ -1,5 +1,6 @@
 // @ts-ignore
 import template from "./widget.html";
+import css from "./widget.css";
 import toggle from "../../utils/toggle";
 import { renderMenu } from "../menu/menu";
 import { ISeinnaSettings } from "../../sienna";
@@ -12,7 +13,7 @@ export function renderWidget(options: ISeinnaSettings) {
     } = options;
 
     const widget: HTMLElement = document.createElement("div");
-    widget.innerHTML = template;
+    widget.innerHTML = `<style>${css}</style>${template}`;
     widget.classList.add("asw-container");
 
     let $btn: HTMLElement = widget.querySelector(".asw-menu-btn");
@@ -78,6 +79,8 @@ export function renderWidget(options: ISeinnaSettings) {
     let menu;
     $btn?.addEventListener("click", (event) => {    
         event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
 
         if(menu) {
             toggle(menu);
@@ -88,12 +91,10 @@ export function renderWidget(options: ISeinnaSettings) {
             });
         }
     });
-
     
     translateMenu(widget);
     
     document.body.appendChild(widget);
-
 
     return widget;
 }

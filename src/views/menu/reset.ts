@@ -1,10 +1,11 @@
-import { saveSettings } from "../../storage";
+import { saveUserSettings, userSettings } from "@/globals/userSettings";
 import runAccessibility from "./runAccessibility";
 
 export default function reset() {
-    saveSettings({ states: {} });
+    document?.querySelectorAll(".asw-selected")?.forEach(el => el?.classList?.remove("asw-selected"))
 
+    userSettings.states = {};
     runAccessibility();
 
-    document?.querySelectorAll(".asw-selected")?.forEach(el => el?.classList?.remove("asw-selected"))
+    saveUserSettings();
 }

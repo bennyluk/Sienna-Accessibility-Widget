@@ -1,43 +1,43 @@
 import sienna from "./sienna";
 
 function getDataAttribute(attr) {
-    attr = `data-asw-${ attr }`;
-    return document?.querySelector(`[${ attr }]`)?.getAttribute(attr)
+    const key = `data-asw-${attr}`;
+
+    const script = document.currentScript;
+    if (script?.hasAttribute(key)) {
+        return script.getAttribute(key);
+    }
+    
+    return document.querySelector(`[${key}]`)?.getAttribute(key);
 }
 
-function initializeSienna() {
-    let lang: string = getDataAttribute("lang");
-    let position: string = getDataAttribute("position")
-    let offset: string | number[] = getDataAttribute("offset");
+function getDefaultLanguage() {
+    const language = 
+        getDataAttribute("lang") ||
+        document.documentElement?.lang ||
+        navigator?.language ||
+        document.querySelector('meta[http-equiv="Content-Language"]')?.content
 
-    if(!lang) {
-        lang = document?.querySelector('html')?.getAttribute('lang')?.replace(/[_-].*/, '');
-    }
-    if(!lang && typeof navigator !== "undefined" && navigator?.language) {
-        lang = navigator?.language;
-    }
-
-    if(offset) {
-        offset = offset.split(",").map(value => parseInt(value));
-    }
-
-    sienna({
-        lang,
-        position,
-        offset
-    });
+    return language?.split(/[-_]/)?.[0]?.trim() || "en";
 }
 
-function checkReadyState() {
+function initialize() {
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        // Document is ready, call the initialization function
-        initializeSienna();
+        document.removeEventListener('readystatechange', initialize);
 
-        // Remove the event listener to ensure it's only executed once
-        document.removeEventListener('readystatechange', checkReadyState);
+        const options = {
+            lang: getDefaultLanguage(),
+            position: getDataAttribute("position"),
+            offset: getDataAttribute("offset")?.split(",").map(Number),
+            size: getDataAttribute("size")
+        };
+
+        sienna({
+            options
+        });
     }
 }
 
 // Use readystatechange for async support
-document.addEventListener("readystatechange", checkReadyState);
+document.addEventListener("readystatechange", initialize);
 

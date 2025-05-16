@@ -1,8 +1,7 @@
 export default function toggle(el: HTMLElement, state?: boolean) {
-    el.style.display = 
-        (typeof state === "undefined") 
-            ?
-                el.style.display === "none" ? "block" : "none" 
-            :
-                state == true ? "block" : "none"
+    const shouldShow = typeof state === "undefined"
+        ? el.style.display === "none"
+        : state;
+
+    el.style.display = shouldShow ? "block" : "none";
 }

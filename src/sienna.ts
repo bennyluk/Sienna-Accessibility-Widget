@@ -1,43 +1,23 @@
-import { getSettings, saveSettings } from "./storage";
-import runAccessibility from "./views/menu/runAccessibility";
-import { renderWidget } from "./views/widget/widget"
+import runAccessibility from "@/views/menu/runAccessibility";
+import { renderWidget } from "@/views/widget/widget"
 
-export interface ISeinnaSettings {
-    lang?: any,
-    position?: any | 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right' | 'center-left' | 'center-right',
-    footer?: any,
-    offset?: any
-}
+import { 
+    userSettings,
+    getSavedUserSettings
+} from '@/globals/userSettings';
 
-export const DEFAULT_OPTIONS: ISeinnaSettings = {
-    lang: 'en',
-    position: 'bottom-left'
-}
+import {
+    pluginConfig
+} from "./globals/pluginConfig";
 
-export default function sienna(args?: ISeinnaSettings) {
-    let options = {
-        ...DEFAULT_OPTIONS
-    };
+export default function sienna({
+    options
+}) {
+    const savedSettings = getSavedUserSettings();
 
-    try {
-        let settings = getSettings(false);
-
-        options = {
-            ...options,
-            ...settings,
-        }
-        
-        runAccessibility();
-    } catch(e) {
-        // silent error
-    }
-
-    options = {
-        ...options,
-        ...args
-    }
+    Object.assign(pluginConfig, options);
+    Object.assign(userSettings, savedSettings);
     
-    saveSettings(options);
-
-    renderWidget(options);
+    runAccessibility();
+    renderWidget();
 }

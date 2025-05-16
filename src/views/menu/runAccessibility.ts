@@ -1,12 +1,13 @@
-import { getSettings } from "../../storage"
-import adjustFontSize from "../../tools/adjustFontSize";
-import renderFilter from "./renderFilter";
+import { 
+    userSettings
+} from '@/globals/userSettings';
+
+import adjustFontSize from "@/tools/adjustFontSize";
 import renderTools from "./renderTools";
+import enableContrast from '@/tools/enableContrast';
 
 export default function runAccessibility() {
-    let { states } = getSettings();
-
-    adjustFontSize(states?.['fontSize'] || 1);
+    adjustFontSize(userSettings?.fontSize);
     renderTools();
-    renderFilter();
+    enableContrast(userSettings?.states?.contrast);
 }

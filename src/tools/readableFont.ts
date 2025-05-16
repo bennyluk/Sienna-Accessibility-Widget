@@ -1,11 +1,11 @@
 import { injectToolCSS } from "../utils/cssGenerator";
 import IToolConfig from "../types/IToolConfig";
-import { TEXT_SELECTORS } from "../enum/Selectors";
+import { ALL_ELEMENT_SELECTORS, TEXT_SELECTORS } from "../enum/Selectors";
 
 export const readableFontConfig: IToolConfig = {
     id: "readable-font",
     selector: `html`,
-    childrenSelector: ['', '*:not(.material-icons,.fa)', ...TEXT_SELECTORS],
+    childrenSelector: [...ALL_ELEMENT_SELECTORS, ...TEXT_SELECTORS],
     styles: {
         'font-family': 'OpenDyslexic3,Comic Sans MS,Arial,Helvetica,sans-serif'
     },

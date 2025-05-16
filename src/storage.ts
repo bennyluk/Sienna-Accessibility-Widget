@@ -1,47 +1,27 @@
 import { getCookie, setCookie } from "./utils/cookies";
-import { ISettings } from "./types/ISettings";
 
-let settings: ISettings = {};
+export function saveStorageData(key, value) {
+    const jsonValue = JSON.stringify(value);
 
-export const COOKIE_KEY = "asw";
-
-export function saveState(payload): ISettings {
-    const newSettings = {
-        ...settings,
-        states: {
-            ...settings.states,
-            ...payload
-        }
-    };
-    saveSettings(newSettings);
-    return newSettings;
-}
-
-export function saveSettings(newSettings: any): void {
-    settings = {
-        ...settings,
-        ...newSettings
-    };
-    setCookie(COOKIE_KEY, JSON.stringify(settings));
-}
-
-export function getState(key: string): any {
-    return settings?.states?.[key];
-}
-
-export function getSettings(cache: boolean = true): ISettings {
-    if (cache) {
-        return settings;
-    } else {
-        const savedSettings = getSavedSettings();
-        if (savedSettings) {
-            settings = JSON.parse(savedSettings);
-        }
-        
-        return settings;
+    try {
+        localStorage.setItem(key, jsonValue);
+    } catch (e) {
+        setCookie(key, jsonValue);
     }
 }
 
-export function getSavedSettings(): string | null {
-    return getCookie(COOKIE_KEY);
+export function getStorageData(key) {
+    let data;
+
+    try {
+        data = localStorage.getItem(key);
+    } catch (e) {
+        data = getCookie(key);
+    }
+
+    try {
+        return JSON.parse(data);
+    } catch (e) {
+        return {};
+    }
 }

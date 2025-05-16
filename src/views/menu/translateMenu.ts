@@ -1,21 +1,23 @@
 import { t } from "../../i18n";
 
-function getTranslatedLabel(el, defaultValue) {
-    let label = el.getAttribute("data-translate") || defaultValue;
+function getTranslatedLabel(el: Element, defaultValue: string): string {
+    const key = el.getAttribute("data-translate") || defaultValue;
 
     if (!el.hasAttribute("data-translate") && defaultValue) {
-        el.setAttribute("data-translate", label);
+        el.setAttribute("data-translate", key);
     }
 
-    return t(label);
+    return t(key);
 }
 
-export default function translateMenu(menu) {
-    menu.querySelectorAll(".asw-card-title, .asw-translate").forEach((el: HTMLDivElement) => {
-        el.innerText = getTranslatedLabel(el, String(el.innerText || "").trim());
-    })
+export default function translateMenu(element: HTMLElement): void {
+    element.querySelectorAll(".asw-card-title, .asw-translate").forEach((el) => {
+        const text = el.textContent?.trim() || "";
+        el.textContent = getTranslatedLabel(el, text);
+    });
 
-    menu.querySelectorAll("[title]").forEach(el => {
-        el.setAttribute("title", getTranslatedLabel(el, el.getAttribute("title")));
+    element.querySelectorAll<HTMLElement>("[title]").forEach((el) => {
+        const title = el.getAttribute("title") || "";
+        el.setAttribute("title", getTranslatedLabel(el, title));
     });
 }

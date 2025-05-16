@@ -3,98 +3,101 @@ import template from "./widget.html";
 import css from "./widget.css";
 import toggle from "../../utils/toggle";
 import { renderMenu } from "../menu/menu";
-import { ISeinnaSettings } from "../../sienna";
 import translateMenu from "../menu/translateMenu";
 
-export function renderWidget(options: ISeinnaSettings) {
-    let {
-        position = "bottom-left",
-        offset=[20,20]
-    } = options;
+import {
+    pluginConfig
+} from "@/globals/pluginConfig";
 
-    const widget: HTMLElement = document.createElement("div");
-    widget.innerHTML = `<style>${css}</style>${template}`;
-    widget.classList.add("asw-container");
+export let $widget: HTMLElement;
 
-    let $btn: HTMLElement = widget.querySelector(".asw-menu-btn");
+export function renderWidget() {
+    $widget = document.createElement("div");
+    $widget.classList.add("asw-container");
+    $widget.innerHTML = `<style>${css}</style>${template}`;
 
-    let offsetX = offset?.[0] ?? 20;
-    let offsetY = offset?.[1] ?? 25;
+    const $btn: HTMLElement = $widget.querySelector(".asw-menu-btn");
+    Object.assign($btn.style, getButtonStyle());
     
-    let buttonStyle: {
-        left?: string,
-        bottom?: string,
-        right?: string,
-        top?: string
-    } = {
-        left: `${offsetX}px`,
-        bottom: `${ offsetY }px`,
-    }
-
-    if(position === "bottom-right") {
-        buttonStyle = {
-            ...buttonStyle,
-            right: `${offsetX}px`,
-            left: "auto"
-        }
-    } else if(position === "top-left") {
-        buttonStyle = {
-            ...buttonStyle,
-            top: `${offsetY}px`,
-            bottom: "auto"
-        }
-    } else if(position === "center-left") {
-        buttonStyle = {
-            ...buttonStyle,
-            bottom: `calc(50% - (55px / 2) - ${ offset?.[1] ?? 0 }px)`
-        }
-    } else if(position === "top-right") {
-        buttonStyle = {
-            top: `${offsetY}px`,
-            bottom: "auto",
-            right: `${offsetX}px`,
-            left: "auto"
-        }
-    } else if(position === "center-right") {
-        buttonStyle = {
-            right: `${offsetX}px`,
-            left: "auto",
-            bottom: `calc(50% - (55px / 2) - ${ offset?.[1] ?? 0 }px)`
-        }
-    } else if(position === "bottom-center") {
-        buttonStyle = {
-            ...buttonStyle,
-            left: `calc(50% - (55px / 2) - ${ offset?.[0] ?? 0 }px)`
-        }
-    } else if(position === "top-center") {
-        buttonStyle = {
-            top: `${offsetY}px`,
-            bottom: "auto",
-            left: `calc(50% - (55px / 2) - ${ offset?.[0] ?? 0 }px)`
-        }
-    }
-
-    Object.assign($btn.style, buttonStyle);
-
-    let menu;
-    $btn?.addEventListener("click", (event) => {    
+    let $menu;
+    $btn?.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
 
-        if(menu) {
-            toggle(menu);
+        if ($menu) {
+            toggle($menu);
         } else {
-            menu = renderMenu({
-                ...options,
-                container: widget,
-            });
+            $menu = renderMenu();
         }
     });
-    
-    translateMenu(widget);
-    
-    document.body.appendChild(widget);
 
-    return widget;
+    translateMenu($widget);
+
+    document.body.appendChild($widget);
+
+    return $widget;
 }
+
+function getButtonStyle() {
+    const {
+        position = "bottom-left",
+        offset = [20, 20]
+    } = pluginConfig;
+
+    const [offsetX = 20, offsetY = 25] = offset;
+
+    const centerY = `calc(50% - 27.5px - ${offsetY}px)`; // 55px / 2 = 27.5
+    const centerX = `calc(50% - 27.5px - ${offsetX}px)`;
+
+    switch (position) {
+        case "bottom-right":
+            return {
+                bottom: `${offsetY}px`,
+                right: `${offsetX}px`,
+                left: "auto"
+            };
+        case "top-left":
+            return {
+                top: `${offsetY}px`,
+                left: `${offsetX}px`,
+                bottom: "auto"
+            };
+        case "top-right":
+            return {
+                top: `${offsetY}px`,
+                right: `${offsetX}px`,
+                left: "auto",
+                bottom: "auto"
+            };
+        case "center-left":
+            return {
+                left: `${offsetX}px`,
+                bottom: centerY
+            };
+        case "center-right":
+            return {
+                right: `${offsetX}px`,
+                left: "auto",
+                bottom: centerY
+            };
+        case "bottom-center":
+            return {
+                bottom: `${offsetY}px`,
+                left: centerX
+            };
+        case "top-center":
+            return {
+                top: `${offsetY}px`,
+                bottom: "auto",
+                left: centerX
+            };
+        default: // "bottom-left"
+            return {
+                bottom: `${offsetY}px`,
+                left: `${offsetX}px`
+            };
+    }
+}
+
+

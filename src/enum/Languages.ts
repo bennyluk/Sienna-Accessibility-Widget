@@ -50,7 +50,7 @@ export const LANGUAGES: ILanguage[] = [
   { code: "tr", label: "Türkçe (Turkish)" },
   { code: "ur", label: "اردو (Urdu)" },
   { code: "vi", label: "Tiếng Việt (Vietnamese)" },
-  { code: "zh-Hans", label: "繁体中文 (Traditional Chinese)" },
+  { code: "zh-Hans", label: "简体中文 (Simplified Chinese)" },
   { code: "zh-Hant", label: "繁體中文 (Traditional Chinese)" }
 ];
 

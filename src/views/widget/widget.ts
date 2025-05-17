@@ -1,9 +1,8 @@
 // @ts-ignore
 import template from "./widget.html";
 import css from "./widget.css";
-import toggle from "../../utils/toggle";
-import { renderMenu } from "../menu/menu";
-import translateMenu from "../menu/translateMenu";
+import { openMenu } from "../menu/menu";
+import translateWidget from "../menu/translateWidget";
 
 import {
     pluginConfig
@@ -19,20 +18,15 @@ export function renderWidget() {
     const $btn: HTMLElement = $widget.querySelector(".asw-menu-btn");
     Object.assign($btn.style, getButtonStyle());
     
-    let $menu;
     $btn?.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
 
-        if ($menu) {
-            toggle($menu);
-        } else {
-            $menu = renderMenu();
-        }
+        openMenu();
     });
 
-    translateMenu($widget);
+    translateWidget();
 
     document.body.appendChild($widget);
 

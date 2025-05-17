@@ -9,6 +9,7 @@ import {
 import {
     pluginConfig
 } from "./globals/pluginConfig";
+import { changeLanguage } from "./i18n/changeLanguage";
 
 export default function sienna({
     options
@@ -20,4 +21,8 @@ export default function sienna({
     
     runAccessibility();
     renderWidget();
+
+    return {
+        changeLanguage
+    }
 }

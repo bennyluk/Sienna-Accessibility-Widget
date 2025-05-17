@@ -1,4 +1,5 @@
-import { t } from "../../i18n";
+import { t } from "../../i18n/translate";
+import { $widget } from "@/views/widget/widget";
 
 function getTranslatedLabel(el: Element, defaultValue: string): string {
     const key = el.getAttribute("data-translate") || defaultValue;
@@ -10,13 +11,13 @@ function getTranslatedLabel(el: Element, defaultValue: string): string {
     return t(key);
 }
 
-export default function translateMenu(element: HTMLElement): void {
-    element.querySelectorAll(".asw-card-title, .asw-translate").forEach((el) => {
+export default function translateWidget(): void {
+    $widget.querySelectorAll(".asw-card-title, .asw-translate").forEach((el) => {
         const text = el.textContent?.trim() || "";
         el.textContent = getTranslatedLabel(el, text);
     });
 
-    element.querySelectorAll<HTMLElement>("[title]").forEach((el) => {
+    $widget.querySelectorAll<HTMLElement>("[title]").forEach((el) => {
         const title = el.getAttribute("title") || "";
         el.setAttribute("title", getTranslatedLabel(el, title));
     });

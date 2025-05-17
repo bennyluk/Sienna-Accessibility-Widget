@@ -1,25 +1,8 @@
 import sienna from "./sienna";
+import { getDefaultLanguage } from "./i18n/getDefaultLanguage";
+import { getScriptDataAttribute } from "./utils/getScriptDataAttribute";
 
-function getDataAttribute(attr) {
-    const key = `data-asw-${attr}`;
 
-    const script = document.currentScript;
-    if (script?.hasAttribute(key)) {
-        return script.getAttribute(key);
-    }
-    
-    return document.querySelector(`[${key}]`)?.getAttribute(key);
-}
-
-function getDefaultLanguage() {
-    const language = 
-        getDataAttribute("lang") ||
-        document.documentElement?.lang ||
-        navigator?.language ||
-        document.querySelector('meta[http-equiv="Content-Language"]')?.content
-
-    return language?.split(/[-_]/)?.[0]?.trim() || "en";
-}
 
 function initialize() {
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -27,12 +10,12 @@ function initialize() {
 
         const options = {
             lang: getDefaultLanguage(),
-            position: getDataAttribute("position"),
-            offset: getDataAttribute("offset")?.split(",").map(Number),
-            size: getDataAttribute("size")
+            position: getScriptDataAttribute("position"),
+            offset: getScriptDataAttribute("offset")?.split(",").map(Number),
+            size: getScriptDataAttribute("size")
         };
 
-        sienna({
+        window.SiennaPlugin = sienna({
             options
         });
     }

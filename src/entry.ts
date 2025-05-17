@@ -1,8 +1,7 @@
 import sienna from "./sienna";
 import { getDefaultLanguage } from "./i18n/getDefaultLanguage";
 import { getScriptDataAttribute } from "./utils/getScriptDataAttribute";
-
-
+import observeHTMLLang from "./utils/observeHTMLLang";
 
 function initialize() {
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -18,6 +17,10 @@ function initialize() {
         window.SiennaPlugin = sienna({
             options
         });
+
+        if (!getScriptDataAttribute("disableObserveLang")) {
+            observeHTMLLang();
+        }
     }
 }
 

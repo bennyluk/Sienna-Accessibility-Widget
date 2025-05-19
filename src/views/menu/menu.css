@@ -165,7 +165,7 @@
     font-weight: 600 !important;
 }
 
-.asw-adjust-font svg{
+.asw-adjust-font svg, .asw-set-font svg {
     width: 24px !important;
     height: 24px !important;
     min-width: 24px !important;
@@ -243,18 +243,18 @@
     padding: 30px 0 15px;
 }
 
-.asw-adjust-font {
+.asw-adjust-font, .asw-set-font {
     background: #fff;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.asw-adjust-font .asw-label {
+.asw-adjust-font .asw-label, .asw-set-font .asw-label {
     display: flex;
     justify-content: flex-start;
 }
 
-.asw-adjust-font > div {
+.asw-adjust-font > div, .asw-set-font > div {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -262,11 +262,11 @@
     font-size: 15px;
 }
 
-.asw-adjust-font .asw-label div {
+.asw-adjust-font .asw-label div, .asw-set-font .asw-label div {
     font-size: 15px !important;
 }
 
-.asw-adjust-font div[role="button"] {
+.asw-adjust-font div[role="button"], .asw-set-font div[role="button"] {
     background: #eff1f5 !important;
     border-radius: 50%;
     width: 36px;

@@ -23,7 +23,13 @@
     "Letter Spacing": "Letter Spacing",
     "Line Height": "Line Height",
     "Font Weight": "Font Weight",
-    "Dyslexia Font": "Dyslexia Font",
     "Language": "Language",
-    "Open Accessibility Menu": "Open Accessibility Menu"
+    "Open Accessibility Menu": "Open Accessibility Menu",
+    "Change Font": "Change Font",
+    "Default": "Default",
+    "Dyslexia Friendly": "Dyslexia Friendly",
+    "Vision Loss Friendly": "Vision Loss Friendly",
+    "Monospace": "Monospace",
+    "System UI": "System UI",
+    "Serif": "Serif"
 }

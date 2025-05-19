@@ -10,6 +10,10 @@
       "types": [
         "./svg.d.ts",
         "./css.d.ts"
+      ],
+      "lib": [
+        "es2015",
+        "dom"
       ]
     },
     "include": [

@@ -13,6 +13,7 @@ import { getSettings, getState, saveSettings, saveState } from "../../storage";
 import reset from "./reset";
 import renderFilter from "./renderFilter";
 import translateMenu from "./translateMenu";
+import { FONT_PRESETS, applyFont, populateFontDropdown, updateFontDropdownTranslations } from "../../tools/fontSelector";
 
 import { ILanguage, LANGUAGES } from "../../enum/Languages";
 
@@ -129,7 +130,33 @@ export function renderMenu({
             lang: $lang.value
         });
 
+        updateFontDropdownTranslations($fontSelect);
+
         translateMenu(container);
+    });
+
+    // Handle font selection
+    const $fontSelect = $menu.querySelector("#font-selection") as HTMLSelectElement;
+    populateFontDropdown($fontSelect);
+
+    // Set initial value from stored settings
+    const currentFont = settings.states?.fontFamily || 'default';
+    $fontSelect.value = currentFont;
+
+    // Apply initial font
+    applyFont(currentFont);
+
+    // Add event listener for font changes
+    $fontSelect.addEventListener('change', () => {
+        const fontId = $fontSelect.value;
+
+        // Save setting
+        saveState({
+            fontFamily: fontId
+        });
+
+        // Apply font
+        applyFont(fontId);
     });
 
     translateMenu($menu);

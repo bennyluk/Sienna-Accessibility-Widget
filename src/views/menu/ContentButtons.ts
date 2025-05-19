@@ -22,11 +22,6 @@ export default [
         icon: letterSpacingIcon,
     },
     {
-        label: 'Dyslexia Font',
-        key: 'readable-font',
-        icon: dyslexiaFontIcon,
-    },
-    {
         label: 'Highlight Links',
         key: 'highlight-links',
         icon: highlightLinksIcon

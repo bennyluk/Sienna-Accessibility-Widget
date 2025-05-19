@@ -1,5 +1,4 @@
 import stopAnimations from "../../tools/stopAnimations";
-import readableFont from "../../tools/readableFont";
 import { getSettings } from "../../storage";
 import bigCursor from "../../tools/bigCursor";
 import highlightTitle from "../../tools/highlightTitle";
@@ -18,8 +17,6 @@ export default function renderTools() {
     adjustLetterSpacing(states['letter-spacing']);
     adjustLineHeight(states['line-height']);
     adjustFontWeight(states['font-weight']);
-
-    readableFont(states['readable-font']);
 
     readingGuide(states['readable-guide']);
     stopAnimations(states['stop-animations']);

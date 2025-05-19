@@ -25,5 +25,12 @@
     "Font Weight": "Peso del carattere",
     "Dyslexia Font": "Carattere per dislessia",
     "Language": "Lingua",
-    "Open Accessibility Menu": "Apri il menu di accessibilità"
+    "Open Accessibility Menu": "Apri il menu di accessibilità",
+    "Change Font": "Cambia carattere",
+    "Default": "Predefinito",
+    "Dyslexia Friendly": "Adatto per dislessia",
+    "Vision Loss Friendly": "Adatto per deficienze visive",
+    "Monospace": "A larghezza fissa",
+    "System UI": "UI di sistema",
+    "Serif": "Con grazie"
 }

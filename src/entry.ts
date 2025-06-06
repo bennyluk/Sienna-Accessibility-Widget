@@ -2,8 +2,9 @@ import sienna from "./sienna";
 import { getDefaultLanguage } from "./i18n/getDefaultLanguage";
 import { getScriptDataAttribute } from "./utils/getScriptDataAttribute";
 import observeHTMLLang from "./utils/observeHTMLLang";
+import {loadLanguages} from "@/i18n/Languages";
 
-function initialize() {
+async function initialize() {
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
         document.removeEventListener('readystatechange', initialize);
 
@@ -13,7 +14,7 @@ function initialize() {
             offset: getScriptDataAttribute("offset")?.split(",").map(Number),
             size: getScriptDataAttribute("size")
         };
-
+        await loadLanguages();
         window.SiennaPlugin = sienna({
             options
         });

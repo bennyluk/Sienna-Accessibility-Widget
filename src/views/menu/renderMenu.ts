@@ -23,6 +23,7 @@ import { $widget } from "../widget/widget";
 
 export default function renderMenu() {
     const $container: HTMLElement = document.createElement("div");
+    $container.style.display = 'block';
     $container.innerHTML = `<style>${css}</style>` + template;
 
     const $menu = $container.querySelector(".asw-menu");

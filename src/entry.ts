@@ -14,6 +14,7 @@ async function initialize() {
             offset: getScriptDataAttribute("offset")?.split(",").map(Number),
             size: getScriptDataAttribute("size")
         };
+        
         await loadLanguages();
         window.SiennaPlugin = sienna({
             options

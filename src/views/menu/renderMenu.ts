@@ -56,6 +56,10 @@ export default function renderMenu() {
     }
 
     // *** Translations ***
+    if (!userSettings.lang && pluginConfig?.lang) {
+        userSettings.lang = pluginConfig.lang;
+    }
+
     if (!LANGUAGES.some(lang => lang.code === userSettings.lang)) {
         userSettings.lang = "en";
     }

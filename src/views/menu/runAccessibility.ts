@@ -7,7 +7,7 @@ import renderTools from "./renderTools";
 import enableContrast from '@/tools/enableContrast';
 
 export default function runAccessibility() {
-    adjustFontSize(userSettings?.fontSize);
+    adjustFontSize(userSettings?.states?.fontSize);
     renderTools();
     enableContrast(userSettings?.states?.contrast);
 }

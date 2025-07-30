@@ -27,11 +27,11 @@
     height: 58px;
     display: flex;
     cursor: pointer;
-    border: 3px solid white !important;
-    outline: 5px solid #0048ff!important;
-    text-decoration: none !important;
-    background: rgb(50,108,255) !important;
-    background: linear-gradient(96deg, rgba(50,108,255,1) 0%, rgba(0,72,255,1) 100%) !important;
+    border: 3px solid white;
+    outline: 5px solid #0048ff;
+    text-decoration: none;
+    background: rgb(50,108,255);
+    background: linear-gradient(96deg, rgba(50,108,255,1) 0%, rgba(0,72,255,1) 100%);
 }
 
 .asw-menu-btn svg {

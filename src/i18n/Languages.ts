@@ -1,4 +1,5 @@
 export const LANGUAGES: ILanguage[] = [
+  { code: "lv", label: "Latviešu (Latvian)" },
   { code: "am", label: "አማርኛ (Amharic)" },
   { code: "ar", label: "العربية (Arabic)" },
   { code: "bg", label: "български (Bulgarian)" },

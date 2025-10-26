@@ -1,0 +1,47 @@
+name: Build Widget
+
+on:
+  workflow_dispatch:        # Allows manual runs
+  push:
+    branches: [ "master" ]  # Adjust if your default branch is 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run esbuild
+        run: node esbuild.config.js
+
+      - name: Force add dist folder
+        run: git add -f dist/
+
+      - name: Commit and push built files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Auto-build widget from GitHub Actions" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git push origin HEAD:master
+
+      - name: Upload dist files as artifacts (optional backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-widget
+          path: dist/

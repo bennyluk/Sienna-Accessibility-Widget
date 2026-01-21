@@ -60,7 +60,7 @@ export default function renderMenu() {
     }
 
     if (!LANGUAGES.some(lang => lang.code === userSettings.lang)) {
-        userSettings.lang = "en";
+        userSettings.lang = pluginConfig.lang;
     }
 
     const $lang = $menu.querySelector("#asw-language");

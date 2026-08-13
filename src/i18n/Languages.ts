@@ -26,6 +26,7 @@ export const LANGUAGES: ILanguage[] = [
   { code: "ko", label: "한국어 (Korean)" },
   { code: "ku", label: "Kurdî (Kurdish)" },
   { code: "lb", label: "Lëtzebuergesch (Luxembourgish)" },
+  { code: "lt", label: "Lietuvių (Lithuanian)" },
   { code: "ml", label: "മലയാളം (Malayalam)" },
   { code: "mn", label: "Монгол (Mongolian)" },
   { code: "ms", label: "Bahasa Malaysia (Malay)" },

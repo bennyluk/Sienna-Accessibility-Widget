@@ -77,7 +77,7 @@ export default function renderMenu() {
     );
 
     $container.querySelectorAll('.asw-menu-reset').forEach((el) =>
-        el.addEventListener('click', reset)
+        el.addEventListener('click', () => reset($menu))
     );
 
     // *** Controls ***
@@ -96,7 +96,7 @@ export default function renderMenu() {
             fontSize = Math.min(fontSize, 2);
             fontSize = Number(fontSize.toFixed(2));
 
-            document.querySelector(".asw-amount").textContent = `${(fontSize * 100).toFixed(0)}%`;
+            $menu.querySelector(".asw-amount").textContent = `${(fontSize * 100).toFixed(0)}%`;
 
             adjustFontSize(fontSize);
             userSettings.states.fontSize = fontSize;

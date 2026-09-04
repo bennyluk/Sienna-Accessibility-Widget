@@ -8,11 +8,12 @@ import {
     pluginConfig
 } from "@/globals/pluginConfig";
 
-export let $widget: HTMLElement;
+export let $widget: ShadowRoot;
 
 export function renderWidget() {
-    $widget = document.createElement("div");
-    $widget.classList.add("asw-container");
+    const $host = document.createElement("div");
+    $host.classList.add("asw-container");
+    $widget = $host.attachShadow({ mode: "open" });
     $widget.innerHTML = `<style>${css}</style>${template}`;
 
     const $btn: HTMLElement = $widget.querySelector(".asw-menu-btn");
@@ -28,7 +29,7 @@ export function renderWidget() {
 
     translateWidget();
 
-    document.body.appendChild($widget);
+    document.body.appendChild($host);
 
     return $widget;
 }

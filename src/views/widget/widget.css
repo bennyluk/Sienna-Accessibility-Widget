@@ -1,3 +1,12 @@
+:host {
+    all: initial;
+    display: block;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
 .asw-widget,
 .asw-menu {
     -webkit-user-select: none;

@@ -13,6 +13,16 @@ Sienna: accessibility widget for websites. easy to install, just copy and paste 
 
 [Install the plugin quickly with just a copy and paste](https://accessibility-widget.pages.dev/#setup)
 
+### Configuration
+
+Add `data-rel="noopener"` to the plugin script to set the `rel` attribute on the accessibility menu link:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/bennyluk/Sienna-Accessibility-Widget@latest/dist/sienna-accessibility.umd.js" data-rel="noopener"></script>
+```
+
+Using `noopener` prevents the page opened by a `target="_blank"` link from accessing the originating page through `window.opener`, protecting against reverse tabnabbing.
+
 ## 🚀 Features
 
 ✅ **Multilingual Support**: Supports multiple languages to ensure a seamless user experience for all users.

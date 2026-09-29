@@ -17,6 +17,10 @@ export function renderWidget() {
 
     const $btn: HTMLElement = $widget.querySelector(".asw-menu-btn");
     Object.assign($btn.style, getButtonStyle());
+
+    if (pluginConfig.rel) {
+        $btn.setAttribute("rel", pluginConfig.rel);
+    }
     
     $btn?.addEventListener("click", (event) => {
         event.preventDefault();

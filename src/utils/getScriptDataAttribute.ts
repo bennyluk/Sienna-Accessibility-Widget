@@ -1,5 +1,4 @@
-export function getScriptDataAttribute(attr) {
-    const key = `data-asw-${attr}`;
+export function getScriptDataAttribute(attr: string, key = `data-asw-${attr}`) {
 
     const script = document.currentScript;
     if (script?.hasAttribute(key)) {
